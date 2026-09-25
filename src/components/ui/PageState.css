@@ -1,0 +1,86 @@
+/* Shared loading / error / empty states for the public pages. */
+
+.ui-bone {
+  display: block;
+  width: 100%;
+  height: 14px;
+  border-radius: 8px;
+  background: linear-gradient(90deg, var(--surface-3) 0%, var(--bg-2) 50%, var(--surface-3) 100%);
+  background-size: 200% 100%;
+  animation: ui-bone-shimmer 1.4s ease-in-out infinite;
+}
+
+@keyframes ui-bone-shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+.ui-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 48px 24px;
+  border: 1.237px dashed var(--border-3);
+  border-radius: 20px;
+  background: var(--surface);
+  text-align: center;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 21px;
+}
+
+.ui-state--compact {
+  padding: 18px 16px;
+  border-radius: 14px;
+}
+
+.ui-state--error {
+  border-color: rgba(230, 62, 75, 0.35);
+  background: rgba(230, 62, 75, 0.04);
+}
+
+.ui-state--error .ui-state__title {
+  color: var(--red);
+}
+
+.ui-state__title {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.ui-state__text {
+  max-width: 460px;
+}
+
+.ui-state__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 4px;
+  padding: 10px 22px;
+  border-radius: 10px;
+  background: var(--grad-orange);
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 19.5px;
+  color: var(--on-brand);
+  white-space: nowrap;
+  transition: opacity 0.15s ease;
+}
+
+.ui-state__btn:hover {
+  opacity: 0.92;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ui-bone {
+    animation: none;
+  }
+}

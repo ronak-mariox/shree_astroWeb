@@ -1,0 +1,297 @@
+.analysis-panel {
+  width: 100%;
+  min-width: 0;
+  color: var(--ink);
+}
+
+.analysis-panel__title {
+  font-size: 20px;
+  font-weight: 800;
+  line-height: 30px;
+  color: var(--ink);
+  word-break: break-word;
+}
+
+.analysis-panel__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 8px;
+}
+
+.analysis-panel__tile {
+  min-width: 0;
+  padding: 16px;
+  background: var(--surface-2);
+  border: 0.655px solid var(--border-2);
+  border-radius: 12px;
+}
+
+.analysis-panel__label {
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 16.5px;
+  color: var(--muted-2);
+  word-break: break-word;
+}
+
+.analysis-panel__value {
+  padding-top: 4px;
+  font-size: 13.5px;
+  font-weight: 700;
+  line-height: 20.25px;
+  color: var(--ink);
+  word-break: break-word;
+}
+
+.analysis-panel__note {
+  margin-top: 24px;
+  padding: 20px;
+  border: 0.655px solid rgba(245, 81, 2, 0.12);
+  border-radius: 14px;
+  background: linear-gradient(174deg, rgba(245, 81, 2, 0.04) 0%, rgba(255, 188, 1, 0.06) 100%);
+}
+
+.analysis-panel__note-text {
+  font-size: 13.5px;
+  font-weight: 400;
+  line-height: 23.625px;
+  color: var(--muted);
+  word-break: break-word;
+}
+
+/* ---- What your chart shows (factors) ---- */
+
+.analysis-panel__section {
+  margin-top: 24px;
+  min-width: 0;
+}
+
+.analysis-panel__section-title {
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 22px;
+  color: var(--ink);
+}
+
+.analysis-panel__factors {
+  display: grid;
+  gap: 10px;
+  margin: 12px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.analysis-panel__factor {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  min-width: 0;
+  padding: 14px 16px;
+  background: var(--surface-2);
+  border: 0.655px solid var(--border-2);
+  border-radius: 12px;
+}
+
+.analysis-panel__dot {
+  flex: 0 0 auto;
+  width: 10px;
+  height: 10px;
+  margin-top: 5px;
+  border-radius: 50%;
+  background: var(--grey-2);
+}
+
+.analysis-panel__factor--positive .analysis-panel__dot {
+  background: var(--green);
+}
+
+.analysis-panel__factor--caution .analysis-panel__dot {
+  background: var(--orange);
+}
+
+.analysis-panel__factor-body {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.analysis-panel__factor-title {
+  font-size: 13.5px;
+  font-weight: 700;
+  line-height: 20.25px;
+  color: var(--ink);
+  word-break: break-word;
+}
+
+.analysis-panel__factor-text {
+  padding-top: 2px;
+  font-size: 13px;
+  line-height: 21px;
+  color: var(--muted);
+  word-break: break-word;
+}
+
+.analysis-panel__factor-basis {
+  padding-top: 4px;
+  font-size: 11.5px;
+  line-height: 17px;
+  color: var(--muted-2);
+  word-break: break-word;
+}
+
+/* ---- Periods strip ---- */
+
+.analysis-panel__periods {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.analysis-panel__period {
+  min-width: 0;
+  padding: 14px 16px;
+  background: var(--surface-2);
+  border: 0.655px solid var(--border-2);
+  border-left: 3px solid var(--grey-2);
+  border-radius: 12px;
+}
+
+.analysis-panel__period--positive {
+  border-left-color: var(--green);
+}
+
+.analysis-panel__period--caution {
+  border-left-color: var(--orange);
+}
+
+.analysis-panel__period-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 6px 8px;
+}
+
+.analysis-panel__period-label {
+  min-width: 0;
+  font-size: 13.5px;
+  font-weight: 700;
+  line-height: 20.25px;
+  color: var(--ink);
+  /* Wrap between words only — "Sun mahadasha" must never split mid-word in a narrow card. */
+  overflow-wrap: normal;
+  word-break: normal;
+  hyphens: none;
+}
+
+.analysis-panel__pill {
+  flex: 0 0 auto;
+  padding: 2px 10px;
+  border-radius: var(--radius-pill);
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 16.5px;
+  white-space: nowrap;
+}
+
+.analysis-panel__pill--positive {
+  background: rgba(46, 204, 113, 0.14);
+  color: #1e8e4f;
+}
+
+.analysis-panel__pill--caution {
+  background: rgba(245, 81, 2, 0.1);
+  color: var(--orange-2);
+}
+
+.analysis-panel__pill--neutral {
+  background: rgba(138, 138, 138, 0.14);
+  color: var(--muted);
+}
+
+.analysis-panel__period-range {
+  padding-top: 4px;
+  font-size: 12.5px;
+  font-weight: 600;
+  line-height: 18px;
+  color: var(--muted);
+}
+
+.analysis-panel__period-reason {
+  padding-top: 4px;
+  font-size: 12px;
+  line-height: 18px;
+  color: var(--muted);
+  word-break: break-word;
+}
+
+/* ---- Footer: based on / confidence / disclaimer ---- */
+
+.analysis-panel__footer {
+  display: grid;
+  gap: 8px;
+  margin-top: 24px;
+  padding-top: 16px;
+  border-top: 0.655px solid var(--border-2);
+}
+
+.analysis-panel__based-on {
+  font-size: 12.5px;
+  line-height: 19px;
+  color: var(--muted);
+  word-break: break-word;
+}
+
+.analysis-panel__based-on-label {
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.analysis-panel__confidence {
+  font-size: 12px;
+  line-height: 18px;
+  color: var(--muted);
+}
+
+.analysis-panel__disclaimer {
+  font-size: 11.5px;
+  line-height: 17px;
+  color: var(--muted-2);
+}
+
+@media (max-width: 1024px) {
+  .analysis-panel__periods {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .analysis-panel__grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .analysis-panel__title {
+    font-size: 18px;
+    line-height: 27px;
+  }
+
+  .analysis-panel__periods {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .analysis-panel__note {
+    padding: 16px;
+  }
+
+  .analysis-panel__factor,
+  .analysis-panel__period {
+    padding: 12px 14px;
+  }
+
+  .analysis-panel__period-head {
+    flex-wrap: wrap;
+  }
+}

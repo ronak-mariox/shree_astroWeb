@@ -1,0 +1,117 @@
+.sade-sati-tab {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  min-width: 0;
+  color: var(--ink);
+}
+
+.sade-sati-tab__title {
+  padding-bottom: 8px;
+  font-size: 20px;
+  font-weight: 800;
+  line-height: 30px;
+  color: var(--ink);
+}
+
+.sade-sati-tab__status {
+  display: inline-flex;
+  align-items: center;
+  margin-bottom: 24px;
+  padding: 6px 14px;
+  border: 0.655px solid rgba(245, 158, 11, 0.2);
+  border-radius: 100px;
+  background: rgba(245, 158, 11, 0.1);
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 19.5px;
+  color: #d97706;
+}
+
+.sade-sati-tab__summary {
+  width: 100%;
+  font-size: 14.5px;
+  font-weight: 400;
+  line-height: 25.375px;
+  color: var(--muted);
+}
+
+.sade-sati-tab__phases {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.sade-sati-tab__phase {
+  min-width: 0;
+  padding: 16px;
+  border: 0.655px solid var(--border-2);
+  border-radius: 12px;
+  background: var(--surface-2);
+}
+
+.sade-sati-tab__phase-name {
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 19.5px;
+  color: var(--ink);
+}
+
+.sade-sati-tab__phase-period {
+  padding-top: 4px;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 18px;
+  color: var(--orange);
+}
+
+.sade-sati-tab__phase-intensity {
+  padding-top: 4px;
+  font-size: 11.5px;
+  font-weight: 400;
+  line-height: 17.25px;
+  color: var(--muted-2);
+}
+
+@media (max-width: 768px) {
+  .sade-sati-tab__title {
+    font-size: 18px;
+    line-height: 27px;
+  }
+
+  .sade-sati-tab__phases {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* --- backend-wired additions --- */
+
+.sade-sati-tab__status--present {
+  border-color: rgba(220, 38, 38, 0.2);
+  background: rgba(220, 38, 38, 0.08);
+  color: #dc2626;
+}
+
+.sade-sati-tab__phase--active {
+  border-color: rgba(245, 81, 2, 0.3);
+  background: rgba(245, 81, 2, 0.04);
+}
+
+.sade-sati-tab__note {
+  width: 100%;
+  margin-top: 8px;
+  padding: 20px;
+  border: 0.655px solid var(--border-2);
+  border-radius: 14px;
+  background: var(--surface-2);
+  font-size: 13.5px;
+  line-height: 22px;
+  color: var(--muted);
+}
+
+.sade-sati-tab .section-status {
+  margin-top: 8px;
+}

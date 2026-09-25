@@ -1,0 +1,34 @@
+.home__body {
+  background: var(--surface) url('../../assets/common/bg-pattern.png') top center / 1648px auto repeat;
+  padding-top: 74px;
+}
+
+.home__stack {
+  display: flex;
+  flex-direction: column;
+  gap: 33px;
+}
+
+.home__stack + .home__stack {
+  margin-top: 33px;
+}
+
+.home__stack:last-child {
+  margin-bottom: 33px;
+}
+
+@media (max-width: 768px) {
+  .home__body {
+    padding-top: 32px;
+    background-size: 900px auto;
+  }
+  .home__stack {
+    gap: 24px;
+  }
+  .home__stack + .home__stack {
+    margin-top: 24px;
+  }
+  .home__stack:last-child {
+    margin-bottom: 24px;
+  }
+}

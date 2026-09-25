@@ -1,0 +1,187 @@
+.account-notifications {
+  --notif-orange: 245, 81, 2;
+  --notif-green: 34, 197, 94;
+  --notif-blue: 59, 130, 246;
+  --notif-violet: 139, 92, 246;
+  --notif-amber: 245, 158, 11;
+}
+
+.account-notifications__mark-all {
+  align-self: center;
+  padding: 9px 16px;
+  border: 0.619px solid rgba(245, 81, 2, 0.25);
+  border-radius: 10px;
+  background: rgba(245, 81, 2, 0.06);
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 19.5px;
+  color: #f55102;
+  white-space: nowrap;
+  transition: background-color 0.15s ease, opacity 0.15s ease;
+}
+
+.account-notifications__mark-all:hover {
+  background: rgba(245, 81, 2, 0.12);
+}
+
+.account-notifications__mark-all:disabled {
+  opacity: 0.45;
+  cursor: default;
+}
+
+.account-notifications__list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding-top: 36px;
+}
+
+.account-notifications__item {
+  --tone: var(--notif-orange);
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 20px 24px;
+  border: 1.237px solid var(--acc-border);
+  border-radius: 18px;
+  background: var(--acc-card);
+  box-shadow: 0 2px 4px var(--acc-shadow);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.account-notifications__item--orange {
+  --tone: var(--notif-orange);
+}
+
+.account-notifications__item--green {
+  --tone: var(--notif-green);
+}
+
+.account-notifications__item--blue {
+  --tone: var(--notif-blue);
+}
+
+.account-notifications__item--violet {
+  --tone: var(--notif-violet);
+}
+
+.account-notifications__item--amber {
+  --tone: var(--notif-amber);
+}
+
+.account-notifications__item--unread {
+  border-color: rgba(var(--tone), 0.16);
+  box-shadow: 0 4px 8px rgba(var(--tone), 0.07);
+  cursor: pointer;
+}
+
+.account-notifications__icon {
+  flex-shrink: 0;
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: rgba(var(--tone), 0.07);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.account-notifications__icon img {
+  width: 18px;
+  height: 18px;
+}
+
+.account-notifications__body {
+  flex: 1;
+  min-width: 0;
+}
+
+.account-notifications__text {
+  padding-bottom: 5px;
+  font-size: 14.5px;
+  line-height: 23.925px;
+  color: var(--acc-text);
+}
+
+.account-notifications__time {
+  padding-top: 5px;
+  font-size: 12px;
+  line-height: 18px;
+  color: var(--acc-muted);
+}
+
+.account-notifications__dot {
+  flex-shrink: 0;
+  width: 9px;
+  height: 9px;
+  margin-top: 6px;
+  border-radius: 50%;
+  background: rgb(var(--tone));
+}
+
+@media (max-width: 768px) {
+  .account-notifications__list {
+    padding-top: 24px;
+  }
+
+  .account-notifications__item {
+    padding: 16px;
+    gap: 12px;
+  }
+}
+
+/* live-data additions */
+
+.account-notifications__item {
+  cursor: pointer;
+}
+
+.account-notifications__item--static {
+  cursor: default;
+}
+
+.account-notifications__item:focus-visible {
+  outline: 2px solid #ffbc01;
+  outline-offset: 2px;
+}
+
+.account-notifications__title {
+  font-size: 14.5px;
+  font-weight: 700;
+  line-height: 22px;
+  color: var(--acc-text);
+}
+
+.account-notifications__item--read .account-notifications__title {
+  font-weight: 600;
+}
+
+.account-notifications__text {
+  padding-top: 2px;
+  padding-bottom: 5px;
+}
+
+.account-notifications__item--read .account-notifications__text {
+  color: var(--acc-text-2);
+}
+
+.account-notifications__list .account-state {
+  margin-top: 0;
+}
+
+.account-notifications__skeleton {
+  display: flex;
+  gap: 16px;
+  padding: 20px 24px;
+  border: 1.237px solid var(--acc-border);
+  border-radius: 18px;
+  background: var(--acc-card);
+}
+
+.account-notifications__skeleton-body {
+  flex: 1;
+}
+
+.account-notifications__error {
+  padding-top: 12px;
+}

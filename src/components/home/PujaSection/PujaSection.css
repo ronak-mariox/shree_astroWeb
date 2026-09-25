@@ -1,0 +1,291 @@
+.puja-section {
+  background: linear-gradient(180deg, var(--bg) 0%, var(--warm-soft) 100%);
+  padding: 72px 0;
+}
+
+.puja-section__inner {
+  max-width: 1248px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.puja-section__head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.puja-section__eyebrow {
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 18px;
+  letter-spacing: 1.2px;
+  color: var(--orange);
+}
+
+.puja-section__title {
+  margin-top: 8px;
+  font-size: 36px;
+  font-weight: 600;
+  line-height: 39.6px;
+  letter-spacing: -1.08px;
+  color: var(--ink);
+}
+
+.puja-section__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 12px 22px;
+  border: 1px solid var(--border);
+  border-radius: 11px;
+  font-size: 13.5px;
+  font-weight: 700;
+  line-height: 20.25px;
+  color: var(--ink-2);
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: border-color 0.15s ease, background-color 0.15s ease;
+}
+
+.puja-section__link:hover {
+  border-color: var(--border-3);
+  background: rgba(0, 0, 0, 0.02);
+}
+
+.puja-section__link-icon {
+  width: 14px;
+  height: 14px;
+}
+
+.puja-section__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+  margin-top: 36px;
+}
+
+.puja-section__card {
+  display: flex;
+  flex-direction: column;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 22px;
+  box-shadow: 0 2px 12px var(--shadow);
+  overflow: hidden;
+}
+
+.puja-section__media {
+  position: relative;
+  height: 200px;
+  overflow: hidden;
+}
+
+.puja-section__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.puja-section__media-shade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 60%);
+}
+
+.puja-section__badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  padding: 4px 11px;
+  border-radius: var(--radius-pill);
+  background: var(--grad-orange);
+  font-size: 10.5px;
+  font-weight: 700;
+  line-height: 15.75px;
+  color: var(--on-brand);
+  white-space: nowrap;
+}
+
+.puja-section__caption {
+  position: absolute;
+  left: 14px;
+  right: 14px;
+  bottom: 12px;
+}
+
+.puja-section__deity {
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 16.5px;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.puja-section__name {
+  margin-top: 2px;
+  font-size: 17px;
+  font-weight: 800;
+  line-height: 25.5px;
+  color: var(--on-brand);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.puja-section__body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 16px 18px 18px;
+}
+
+.puja-section__desc {
+  font-size: 12.5px;
+  font-weight: 400;
+  line-height: 18.75px;
+  color: var(--muted-2);
+}
+
+.puja-section__meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 10px;
+  flex-wrap: wrap;
+}
+
+.puja-section__meta-icon {
+  width: 12px;
+  height: 12px;
+  flex-shrink: 0;
+}
+
+.puja-section__rating {
+  font-size: 12.5px;
+  font-weight: 700;
+  line-height: 18.75px;
+  color: var(--ink);
+}
+
+.puja-section__reviews {
+  font-size: 12px;
+  line-height: 18px;
+  color: var(--muted-2);
+}
+
+.puja-section__duration {
+  font-size: 12px;
+  line-height: 18px;
+  color: var(--muted-2);
+}
+
+.puja-section__foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: auto;
+  padding-top: 12px;
+}
+
+.puja-section__pricing {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+}
+
+.puja-section__price {
+  font-size: 20px;
+  font-weight: 800;
+  line-height: 30px;
+  color: var(--ink);
+}
+
+.puja-section__old-price {
+  font-size: 12px;
+  line-height: 18px;
+  color: var(--muted-2);
+}
+
+.puja-section__off {
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 16.5px;
+  color: #22c55e;
+}
+
+.puja-section__book {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 9px 18px;
+  border-radius: 10px;
+  background: var(--grad-orange);
+  font-size: 12.5px;
+  font-weight: 700;
+  line-height: 18.75px;
+  color: var(--on-brand);
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: opacity 0.15s ease;
+}
+
+.puja-section__book:hover {
+  opacity: 0.92;
+}
+
+.puja-section__trust {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px 40px;
+  margin-top: 40px;
+}
+
+.puja-section__trust-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 19.5px;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+.puja-section__trust-icon {
+  width: 18px;
+  height: 18px;
+}
+
+@media (max-width: 1024px) {
+  .puja-section__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .puja-section {
+    padding: 56px 0;
+  }
+  .puja-section__head {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .puja-section__title {
+    font-size: 30px;
+    line-height: 36px;
+  }
+  .puja-section__trust {
+    gap: 14px 28px;
+  }
+}
+
+@media (max-width: 640px) {
+  .puja-section__grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

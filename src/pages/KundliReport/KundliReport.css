@@ -1,0 +1,370 @@
+.kundli-report {
+  background: var(--bg);
+  padding-bottom: 80px;
+}
+
+.kundli-report__topbar {
+  padding: 32px 0;
+  background: linear-gradient(175.05deg, var(--warm-soft) 0%, var(--bg) 100%);
+  border-bottom: 0.655px solid var(--border);
+}
+
+.kundli-report__topbar-inner {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  max-width: 1200px;
+  min-height: 60px;
+  margin: 0 auto;
+}
+
+.kundli-report__back {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 16px;
+  border: 1.309px solid var(--border);
+  border-radius: 9px;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 19.5px;
+  color: var(--muted);
+  white-space: nowrap;
+  transition: border-color 0.15s ease, color 0.15s ease;
+}
+
+.kundli-report__back:hover {
+  border-color: var(--orange);
+  color: var(--orange);
+}
+
+.kundli-report__who {
+  min-width: 0;
+}
+
+.kundli-report__eyebrow {
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 18px;
+  color: var(--muted-2);
+}
+
+.kundli-report__name {
+  font-size: 28px;
+  font-weight: 600;
+  line-height: 42px;
+  letter-spacing: -0.56px;
+  color: var(--ink);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.kundli-report__actions {
+  display: flex;
+  align-items: stretch;
+  gap: 10px;
+  margin-left: auto;
+}
+
+.kundli-report__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 19.5px;
+  white-space: nowrap;
+  transition: opacity 0.15s ease, border-color 0.15s ease;
+}
+
+.kundli-report__btn--primary {
+  background: var(--grad-orange);
+  color: var(--on-brand);
+}
+
+.kundli-report__btn--primary:hover {
+  opacity: 0.92;
+}
+
+.kundli-report__btn--outline {
+  background: var(--surface);
+  border: 1.309px solid var(--border);
+  color: var(--ink-2);
+}
+
+.kundli-report__btn--outline:hover {
+  border-color: var(--orange);
+}
+
+.kundli-report__layout {
+  display: flex;
+  align-items: flex-start;
+  gap: 28px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-top: 32px;
+}
+
+.kundli-report__sidebar {
+  flex: 0 0 220px;
+  width: 220px;
+  padding: 8px;
+  background: var(--surface);
+  border: 1.309px solid var(--border);
+  border-radius: 16px;
+}
+
+.kundli-report__tabs {
+  display: flex;
+  flex-direction: column;
+}
+
+.kundli-report__tab {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 19.5px;
+  color: var(--muted);
+  text-align: left;
+  white-space: nowrap;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.kundli-report__tab:hover {
+  background: #fffaf0;
+}
+
+.kundli-report__tab-icon {
+  display: inline-block;
+  min-width: 14px;
+  font-size: 14px;
+  line-height: 21px;
+  text-align: center;
+}
+
+.kundli-report__tab--active {
+  background: linear-gradient(90deg, rgba(245, 81, 2, 0.08) 0%, rgba(255, 188, 1, 0.1) 100%);
+  font-weight: 700;
+  color: var(--orange);
+}
+
+.kundli-report__panel {
+  flex: 1 1 auto;
+  min-width: 0;
+  padding: 32px;
+  background: var(--surface);
+  border: 1.309px solid var(--border);
+  border-radius: 20px;
+}
+
+.kundli-report__panel--bare {
+  padding: 0;
+  background: none;
+  border: 0;
+  border-radius: 0;
+}
+
+@media (max-width: 1024px) {
+  .kundli-report__layout {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 20px;
+    padding-top: 24px;
+  }
+
+  .kundli-report__sidebar {
+    flex: none;
+    width: 100%;
+    padding: 6px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .kundli-report__sidebar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .kundli-report__tabs {
+    flex-direction: row;
+    gap: 4px;
+    width: max-content;
+    min-width: 100%;
+  }
+
+  .kundli-report__tab {
+    width: auto;
+    padding: 9px 14px;
+  }
+
+  .kundli-report__panel {
+    padding: 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .kundli-report__topbar {
+    padding: 24px 0;
+  }
+
+  .kundli-report__topbar-inner {
+    flex-wrap: wrap;
+    row-gap: 14px;
+  }
+
+  .kundli-report__actions {
+    flex: 1 0 100%;
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .kundli-report {
+    padding-bottom: 56px;
+  }
+
+  .kundli-report__name {
+    font-size: 24px;
+    line-height: 34px;
+  }
+
+  .kundli-report__actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .kundli-report__panel {
+    padding: 20px 16px;
+    border-radius: 16px;
+  }
+}
+
+@media print {
+  .kundli-report {
+    background: var(--surface);
+    padding-bottom: 0;
+  }
+
+  .kundli-report__topbar {
+    background: none;
+    border-bottom: 0.655px solid var(--border-3);
+    padding: 0 0 16px;
+  }
+
+  .kundli-report__back,
+  .kundli-report__actions,
+  .kundli-report__sidebar {
+    display: none !important;
+  }
+
+  .kundli-report__layout {
+    display: block;
+    padding-top: 16px;
+  }
+
+  .kundli-report__panel {
+    border: 0;
+    padding: 0;
+  }
+}
+
+/* --- backend-wired additions: loading / empty / error states, notices --- */
+
+.kundli-report__main {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.kundli-report__notice {
+  padding: 10px 16px;
+  border: 1px solid rgba(245, 158, 11, 0.25);
+  border-radius: 12px;
+  background: rgba(245, 158, 11, 0.08);
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 19.5px;
+  color: #b45309;
+}
+
+.kundli-report__state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  max-width: 1200px;
+  margin: 32px auto 0;
+  padding: 56px 24px;
+  background: var(--surface);
+  border: 1.309px solid var(--border);
+  border-radius: 20px;
+  text-align: center;
+}
+
+.kundli-report__state-title {
+  font-size: 20px;
+  font-weight: 800;
+  line-height: 30px;
+  color: var(--ink);
+}
+
+.kundli-report__state-text {
+  max-width: 460px;
+  font-size: 14px;
+  line-height: 22px;
+  color: var(--muted);
+}
+
+.kundli-report__state-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.kundli-report__state .kundli-report__btn--primary {
+  margin-top: 8px;
+}
+
+.kundli-report__state-actions .kundli-report__btn--primary {
+  margin-top: 0;
+}
+
+.kundli-report__btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.kundli-report__spinner {
+  display: inline-block;
+  width: 34px;
+  height: 34px;
+  margin-bottom: 6px;
+  border: 3px solid rgba(245, 81, 2, 0.15);
+  border-top-color: var(--orange);
+  border-radius: 50%;
+  animation: kundli-report-spin 0.8s linear infinite;
+}
+
+@keyframes kundli-report-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media print {
+  .kundli-report__notice {
+    display: none;
+  }
+}

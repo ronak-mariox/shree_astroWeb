@@ -1,0 +1,466 @@
+/* Puja booking modal — Select Date → Select Time → Booking Details */
+
+.bk-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 16px;
+  background: rgba(255, 253, 247, 0.92);
+  overflow-y: auto;
+}
+
+.bk-card {
+  width: 100%;
+  max-width: 520px;
+  margin: auto;
+  padding: 40px;
+  background: var(--surface);
+  border: 1.237px solid var(--border);
+  border-radius: 24px;
+  box-shadow: 0 24px 40px var(--shadow);
+  font-family: var(--font);
+  color: var(--ink);
+}
+
+/* Step progress */
+.bk-progress {
+  display: flex;
+  gap: 8px;
+}
+
+.bk-progress__seg {
+  flex: 1 0 0;
+  min-width: 1px;
+  height: 4px;
+  border-radius: 2px;
+  background: var(--border);
+}
+
+.bk-progress__seg--done {
+  background: #f55102;
+}
+
+/* Header */
+.bk-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-top: 28px;
+}
+
+.bk-back {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 9px;
+  background: rgba(0, 0, 0, 0.05);
+  transition: background-color 0.15s ease;
+}
+
+.bk-back:hover {
+  background: rgba(0, 0, 0, 0.09);
+}
+
+.bk-back img {
+  width: 15px;
+  height: 15px;
+}
+
+.bk-head__text {
+  min-width: 0;
+}
+
+.bk-title {
+  font-size: 20px;
+  font-weight: 800;
+  line-height: 30px;
+  color: var(--ink);
+}
+
+.bk-subtitle {
+  font-size: 12.5px;
+  font-weight: 400;
+  line-height: 18.75px;
+  color: var(--muted-2);
+}
+
+/* Step 1 — calendar */
+.bk-monthnav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 24px;
+}
+
+.bk-monthnav__btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: var(--bg-2);
+  border: 1.237px solid var(--border);
+  transition: border-color 0.15s ease;
+}
+
+.bk-monthnav__btn:hover {
+  border-color: #ffbc01;
+}
+
+.bk-monthnav__btn img {
+  width: 14px;
+  height: 14px;
+}
+
+.bk-monthnav__label {
+  font-size: 16px;
+  font-weight: 800;
+  line-height: 24px;
+  color: var(--ink);
+}
+
+.bk-weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 4px;
+  padding-top: 16px;
+}
+
+.bk-weekdays span {
+  padding: 4px 0;
+  text-align: center;
+  font-size: 11.5px;
+  font-weight: 700;
+  line-height: 17.25px;
+  color: var(--muted-2);
+}
+
+.bk-days {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 4px;
+  padding-top: 4px;
+}
+
+.bk-day {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 1;
+  border-radius: 9px;
+  font-size: 13.5px;
+  font-weight: 400;
+  line-height: 20.25px;
+  color: var(--ink);
+  transition: background-color 0.15s ease;
+}
+
+.bk-day--empty {
+  pointer-events: none;
+}
+
+.bk-day:not(:disabled):not(.bk-day--selected):hover {
+  background: var(--bg-2);
+}
+
+.bk-day:disabled {
+  color: var(--muted-2);
+  cursor: default;
+}
+
+.bk-day--today {
+  box-shadow: inset 0 0 0 1.856px #f55102;
+  font-weight: 700;
+}
+
+.bk-day--selected,
+.bk-day--selected:hover {
+  background: linear-gradient(135deg, #f55102 0%, #ffbc01 100%);
+  box-shadow: none;
+  color: var(--on-brand);
+  font-weight: 700;
+}
+
+.bk-selected {
+  margin-top: 24px;
+  padding: 10px 14px;
+  border-radius: 10px;
+  background: rgba(245, 81, 2, 0.06);
+  border: 1.237px solid rgba(245, 81, 2, 0.15);
+  font-size: 13.5px;
+  font-weight: 600;
+  line-height: 20.25px;
+  color: #f55102;
+}
+
+/* Continue button */
+.bk-continue {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 50.49px;
+  border-radius: 13px;
+  background: var(--grad-orange);
+  color: var(--on-brand);
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 22.5px;
+  white-space: nowrap;
+  transition: opacity 0.15s ease;
+}
+
+.bk-continue:hover:not(:disabled) {
+  opacity: 0.92;
+}
+
+.bk-continue:disabled {
+  background: var(--border);
+  color: var(--muted-2);
+  cursor: default;
+}
+
+.bk-card--step1 .bk-continue {
+  margin-top: 24px;
+}
+
+.bk-card--step1 .bk-selected + .bk-continue {
+  margin-top: 20px;
+}
+
+.bk-card--step2 .bk-continue {
+  margin-top: 28px;
+}
+
+.bk-card--step3 .bk-continue {
+  margin-top: 24px;
+}
+
+/* Step 2 — time slots */
+.bk-group {
+  padding-top: 20px;
+}
+
+.bk-head + .bk-group {
+  padding-top: 24px;
+}
+
+.bk-group__label {
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 18px;
+  letter-spacing: 0.96px;
+  text-transform: uppercase;
+  color: var(--muted-2);
+}
+
+.bk-slots {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.bk-slot {
+  height: 44.72px;
+  padding: 0 8px;
+  border-radius: 10px;
+  background: var(--surface);
+  border: 1.237px solid var(--border);
+  font-size: 13.5px;
+  font-weight: 600;
+  line-height: 20.25px;
+  color: var(--ink);
+  white-space: nowrap;
+  transition: border-color 0.15s ease, background-color 0.15s ease;
+}
+
+.bk-slot:hover:not(:disabled) {
+  border-color: #ffbc01;
+}
+
+.bk-slot:disabled {
+  background: var(--bg-2);
+  color: var(--muted-2);
+  text-decoration: line-through;
+  cursor: default;
+}
+
+.bk-slot--selected,
+.bk-slot--selected:hover:not(:disabled) {
+  background: var(--grad-orange);
+  border-color: transparent;
+  color: var(--on-brand);
+}
+
+/* Step 3 — booking details form */
+.bk-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding-top: 28px;
+}
+
+.bk-field {
+  display: block;
+}
+
+.bk-field__label {
+  display: block;
+  padding-bottom: 6px;
+  font-size: 12.5px;
+  font-weight: 700;
+  line-height: 18.75px;
+  color: var(--muted);
+}
+
+.bk-input {
+  display: block;
+  width: 100%;
+  height: 47.46px;
+  padding: 12px 16px;
+  border-radius: 12px;
+  border: 1.237px solid var(--border);
+  background: var(--surface);
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--ink);
+  outline: none;
+  transition: border-color 0.15s ease;
+}
+
+.bk-input::placeholder {
+  color: rgba(17, 17, 17, 0.5);
+}
+
+.bk-input:focus {
+  border-color: #ffbc01;
+}
+
+.bk-textarea {
+  height: 71.27px;
+  line-height: 22.4px;
+  resize: none;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .bk-card {
+    padding: 28px 20px;
+    border-radius: 20px;
+  }
+}
+
+@media (max-width: 400px) {
+  .bk-slots {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* ---------------------------------------------------- live data additions */
+
+.bk-status {
+  padding: 22px 14px;
+  border-radius: 12px;
+  background: var(--surface-2);
+  text-align: center;
+  font-size: 13.5px;
+  line-height: 20px;
+  color: var(--muted);
+}
+
+.bk-status--error {
+  background: rgba(230, 62, 75, 0.06);
+  color: var(--red);
+}
+
+.bk-status--error .bk-link {
+  margin-top: 6px;
+}
+
+.bk-link {
+  display: inline;
+  padding: 0;
+  border: 0;
+  background: none;
+  font: inherit;
+  font-weight: 700;
+  color: var(--orange);
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.bk-slot {
+  position: relative;
+}
+
+.bk-slot__left {
+  display: block;
+  margin-top: 2px;
+  font-size: 10px;
+  font-weight: 600;
+  line-height: 12px;
+  color: var(--orange);
+}
+
+.bk-slot--selected .bk-slot__left {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.bk-pay {
+  margin-top: 20px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: rgba(245, 81, 2, 0.05);
+  border: 1.237px solid rgba(245, 81, 2, 0.12);
+  font-size: 13px;
+  line-height: 19.5px;
+  color: var(--ink-2);
+}
+
+.bk-pay--short {
+  background: rgba(230, 62, 75, 0.05);
+  border-color: rgba(230, 62, 75, 0.2);
+}
+
+.bk-pay__row {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.bk-pay__row + .bk-pay__row {
+  margin-top: 4px;
+}
+
+.bk-pay__row strong {
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.bk-pay__note {
+  margin-top: 8px;
+  font-weight: 600;
+  color: var(--red);
+}
+
+.bk-error {
+  margin-top: 12px;
+  font-size: 13px;
+  line-height: 19.5px;
+  font-weight: 600;
+  color: var(--red);
+}
+
+/* ---- coupon ---- */
+
+.bk-pay__row--discount strong {
+  color: #15803d;
+}

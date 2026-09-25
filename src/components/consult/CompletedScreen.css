@@ -1,0 +1,118 @@
+.completed {
+  padding: 48px 44px;
+  align-items: center;
+}
+
+.completed__check {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: rgba(34, 197, 94, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.completed__check-icon {
+  width: 32px;
+  height: 32px;
+}
+
+.completed__title {
+  padding-top: 20px;
+  font-size: 24px;
+  font-weight: 900;
+  line-height: 36px;
+  color: var(--ink);
+  text-align: center;
+}
+
+.completed__text {
+  padding-top: 6px;
+  font-size: 14px;
+  line-height: 21px;
+  color: var(--muted-2);
+  text-align: center;
+}
+
+.completed__summary {
+  width: 100%;
+  margin: 32px 0 28px;
+  padding: 20px 24px;
+  border-radius: 16px;
+  background: var(--bg-2);
+}
+
+.completed__astro {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.completed__avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.completed__astro-name {
+  font-size: 14.5px;
+  font-weight: 700;
+  line-height: 21.75px;
+  color: var(--ink);
+}
+
+.completed__astro-spec {
+  font-size: 12px;
+  line-height: 18px;
+  color: var(--muted-2);
+}
+
+.completed__rows {
+  margin-top: 16px;
+}
+
+.completed__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 35px;
+  padding: 7px 0;
+  border-top: 0.655px solid var(--border);
+}
+
+.completed__label {
+  font-size: 13px;
+  line-height: 19.5px;
+  color: var(--muted-2);
+}
+
+.completed__value {
+  font-size: 13.5px;
+  font-weight: 700;
+  line-height: 20.25px;
+  color: var(--ink);
+}
+
+.completed__back {
+  margin-top: 10px;
+}
+
+@media (max-width: 560px) {
+  .completed {
+    padding: 32px 20px;
+  }
+  .completed__summary {
+    padding: 16px;
+  }
+}
+
+.completed__rated {
+  text-align: center;
+  font-size: 14px;
+  font-weight: 600;
+  color: #15803d;
+  padding: 12px 0;
+}

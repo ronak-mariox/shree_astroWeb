@@ -1,0 +1,225 @@
+:root {
+  --font: 'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+
+  --yellow: #ffd700;
+  --lime: #eddd3b;
+  --gold: #ffbc01;
+  --orange: #f55102;
+  --orange-2: #e54f04;
+  --navy: #012034;
+  --cream: #fffde9;
+  --cream-2: #fff8ec;
+  --off-white: #fdfaf5;
+  --black: #000000;
+  --grey: #6b6b6b;
+  --grey-2: #8a8a8a;
+  --white: #ffffff;
+  --green: #2ecc71;
+  --red: #e63e4b;
+  --indigo: #4a51bb;
+
+  --grad-orange: linear-gradient(90deg, #f55102 0%, #ffbc01 100%);
+  --grad-header: linear-gradient(63.6deg, #eddd3b 1.32%, #fefef9 50%, #eddd3b 98.68%);
+
+  --radius-pill: 999px;
+  --container: 1489px;
+  --gutter: 24px;
+  --header-h: 131px;
+
+  /* ---- semantic theme tokens (light) ---- */
+  --bg: #fffdf7;
+  --bg-2: #fdfaf5;
+  --surface: #ffffff;
+  --surface-2: #fafafa;
+  --surface-3: #f5f5f5;
+  --ink: #111111;
+  --ink-2: #333333;
+  --muted: #666666;
+  --muted-2: #999999;
+  --border: #eaeaea;
+  --border-2: #f0f0f0;
+  --border-3: #d9d9d9;
+  --shadow: rgba(0, 0, 0, 0.06);
+  --on-brand: #ffffff;
+  --brand-soft: #fff3e8;
+  --warm-soft: #fff8e1;
+  --success-soft: #ecfdf3;
+  --danger-soft: #fef2f2;
+  --footer-bg: #f0df20;
+  --footer-ink: #111111;
+
+  /* dashboard aliases (kept for the account pages) */
+  --acc-bg: var(--bg);
+  --acc-card: var(--surface);
+  --acc-card-2: var(--surface-2);
+  --acc-text: var(--ink);
+  --acc-muted: #888888;
+  --acc-border: var(--border);
+  --acc-text-2: #555555;
+  --acc-text-3: var(--muted);
+  --acc-shadow: rgba(0, 0, 0, 0.04);
+  --acc-orange: var(--orange);
+  --acc-grad: linear-gradient(135deg, #f55102 0%, #ffbc01 100%);
+
+  color-scheme: light;
+}
+
+:root[data-theme='dark'] {
+  --bg: #0f0f12;
+  --bg-2: #141419;
+  --surface: #17171c;
+  --surface-2: #1f1f26;
+  --surface-3: #26262e;
+  --ink: #f5f5f5;
+  --ink-2: #d6d6de;
+  --muted: #a4a4b0;
+  --muted-2: #7d7d8a;
+  --border: #2a2a33;
+  --border-2: #23232b;
+  --border-3: #34343e;
+  --shadow: rgba(0, 0, 0, 0.45);
+  --on-brand: #ffffff;
+  --brand-soft: rgba(245, 81, 2, 0.14);
+  --warm-soft: rgba(255, 188, 1, 0.12);
+  --success-soft: rgba(34, 197, 94, 0.14);
+  --danger-soft: rgba(239, 68, 68, 0.14);
+  --grad-header: linear-gradient(63.6deg, #1a1a12 1.32%, #17171c 50%, #1a1a12 98.68%);
+  --footer-bg: #15151a;
+  --footer-ink: #f5f5f5;
+
+  --acc-muted: #9a9aa5;
+  --acc-text-2: #c9c9d2;
+  --acc-shadow: rgba(0, 0, 0, 0.35);
+
+  color-scheme: dark;
+}
+
+@media (max-width: 1024px) {
+  :root {
+    --header-h: 72px;
+  }
+}
+
+@media (max-width: 600px) {
+  :root {
+    --gutter: 16px;
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font);
+  color: var(--ink);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-width: 320px;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+  border: 0;
+  background: none;
+  padding: 0;
+  cursor: pointer;
+  color: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+input,
+textarea,
+select {
+  font-family: inherit;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+.btn-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 45px;
+  padding: 0 24px;
+  border-radius: var(--radius-pill);
+  background: var(--yellow);
+  font-weight: 600;
+  font-size: 16px;
+  text-transform: capitalize;
+  color: var(--black);
+  white-space: nowrap;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.btn-pill:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.12);
+}
+
+.btn-gradient {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 44px;
+  padding: 0 24px;
+  border-radius: 8px;
+  background: var(--grad-orange);
+  color: var(--on-brand);
+  font-weight: 600;
+  font-size: 14px;
+  white-space: nowrap;
+  transition: opacity 0.15s ease;
+}
+
+.btn-gradient:hover {
+  opacity: 0.92;
+}
+
+/* Line icons drawn in ink (black SVGs used as <img>) — flipped to white in dark mode so they stay visible. */
+:root[data-theme='dark'] .icon-ink {
+  filter: invert(1);
+}

@@ -1,0 +1,336 @@
+.directory-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  background: var(--surface);
+  border: 1.309px solid var(--border);
+  border-radius: 20px;
+  box-shadow: 0 2px 10px var(--shadow);
+  overflow: hidden;
+}
+
+.directory-card__media {
+  position: relative;
+  display: block;
+  flex-shrink: 0;
+  height: 180px;
+  margin: -1.309px -1.309px 0;
+  background: var(--warm-soft);
+  overflow: hidden;
+}
+
+.directory-card__photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.directory-card__shade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0) 55%);
+  pointer-events: none;
+}
+
+.directory-card__status,
+.directory-card__rating {
+  position: absolute;
+  top: 10px;
+  display: inline-flex;
+  align-items: center;
+  border-radius: 100px;
+  background: color-mix(in srgb, var(--surface) 95%, transparent);
+  box-shadow: 0 2px 8px var(--shadow);
+  white-space: nowrap;
+}
+
+.directory-card__status {
+  left: 10px;
+  gap: 5px;
+  padding: 4px 10px;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 16.5px;
+  color: #22c55e;
+}
+
+.directory-card__status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 4px;
+  background: #22c55e;
+}
+
+.directory-card__status--offline {
+  color: var(--muted-2);
+}
+
+.directory-card__status--offline .directory-card__status-dot {
+  background: var(--border-3);
+}
+
+.directory-card__rating {
+  right: 10px;
+  gap: 3px;
+  padding: 4px 9px;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 18px;
+  color: var(--ink);
+}
+
+.directory-card__rating-icon {
+  width: 11px;
+  height: 11px;
+}
+
+.directory-card__consultations {
+  position: absolute;
+  left: 10px;
+  right: 10px;
+  bottom: 17.5px;
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 16.5px;
+  color: rgba(255, 255, 255, 0.85);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.directory-card__body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 14px 16px;
+}
+
+.directory-card__name-row {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  width: 100%;
+  min-width: 0;
+  height: 22px;
+  padding-bottom: 3px;
+}
+
+.directory-card__name {
+  font-size: 14.5px;
+  font-weight: 700;
+  line-height: 18.85px;
+  color: var(--ink);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.directory-card__verified {
+  flex-shrink: 0;
+  width: 14px;
+  height: 14px;
+}
+
+.directory-card__meta {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  height: 28px;
+  padding-bottom: 10px;
+  font-size: 11.5px;
+  font-weight: 500;
+  line-height: 17.25px;
+  color: var(--muted-2);
+  white-space: nowrap;
+}
+
+.directory-card__meta-dot {
+  font-weight: 400;
+  color: var(--muted-2);
+}
+
+.directory-card__skills {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 4px;
+  padding-bottom: 12px;
+}
+
+.directory-card__skill {
+  padding: 3px 8px;
+  border-radius: 100px;
+  background: var(--surface-3);
+  font-size: 10.5px;
+  font-weight: 500;
+  line-height: 15.75px;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+.directory-card__price-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 38px;
+  margin-top: auto;
+  padding-bottom: 12px;
+}
+
+.directory-card__price {
+  font-size: 17px;
+  font-weight: 800;
+  line-height: 25.5px;
+  color: var(--ink);
+  white-space: nowrap;
+}
+
+.directory-card__price-unit {
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 16.5px;
+  color: var(--muted-2);
+}
+
+.directory-card__reviews {
+  font-size: 11.5px;
+  font-weight: 400;
+  line-height: 17.25px;
+  color: var(--muted-2);
+  white-space: nowrap;
+}
+
+.directory-card__divider {
+  width: 100%;
+  height: 1px;
+  margin-bottom: 12px;
+  background: var(--surface-3);
+}
+
+.directory-card__actions {
+  display: flex;
+  align-items: stretch;
+  gap: 6px;
+  width: 100%;
+}
+
+.directory-card__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  flex: 81 0 0;
+  min-width: 0;
+  padding: 8px 0;
+  border: 1.309px solid var(--border);
+  border-radius: 8px;
+  font-size: 11.5px;
+  font-weight: 600;
+  line-height: 17.25px;
+  color: var(--ink-2);
+  white-space: nowrap;
+  transition: background-color 0.15s ease, opacity 0.15s ease;
+}
+
+.directory-card__btn:hover {
+  background: var(--surface-3);
+}
+
+.directory-card__btn--call {
+  flex: 79 0 0;
+  border-color: transparent;
+  background: var(--grad-orange);
+  color: var(--on-brand);
+}
+
+.directory-card__btn--call:hover {
+  background: var(--grad-orange);
+  opacity: 0.92;
+}
+
+.directory-card__btn-icon {
+  width: 12px;
+  height: 12px;
+}
+
+.directory-card__status--busy {
+  color: #f59e0b;
+}
+
+.directory-card__status--busy .directory-card__status-dot {
+  background: #f59e0b;
+}
+
+.directory-card__meta-languages {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.directory-card__skill--more {
+  background: transparent;
+  color: var(--muted-2);
+}
+
+.directory-card__price-was {
+  margin-right: 6px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--muted-2);
+}
+
+/* Loading placeholder */
+
+.directory-card--skeleton {
+  pointer-events: none;
+}
+
+.directory-card__bone {
+  border-radius: 8px;
+  background: linear-gradient(90deg, var(--surface-3) 0%, var(--bg-2) 50%, var(--surface-3) 100%);
+  background-size: 200% 100%;
+  animation: directory-card-shimmer 1.4s ease-in-out infinite;
+}
+
+.directory-card--skeleton .directory-card__media {
+  border-radius: 0;
+}
+
+.directory-card__bone--title {
+  width: 70%;
+  height: 16px;
+  margin-bottom: 8px;
+}
+
+.directory-card__bone--line {
+  width: 50%;
+  height: 12px;
+  margin-bottom: 14px;
+}
+
+.directory-card__bone--chip {
+  width: 64px;
+  height: 20px;
+  border-radius: 100px;
+}
+
+.directory-card__bone--price {
+  width: 80px;
+  height: 22px;
+}
+
+.directory-card__bone--btn {
+  flex: 1 0 0;
+  height: 34px;
+}
+
+@keyframes directory-card-shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}

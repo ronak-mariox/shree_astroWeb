@@ -1,0 +1,339 @@
+.account-overview__stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+  padding-top: 36px;
+}
+
+.account-overview__stat--link {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.account-overview__stat--link:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px var(--acc-shadow);
+}
+
+.account-overview__stat--green .account-overview__stat-icon {
+  background: rgba(34, 197, 94, 0.09);
+}
+
+.account-overview__stat--green .account-overview__stat-label {
+  color: #16a34a;
+}
+
+@media (max-width: 1180px) {
+  .account-overview__stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.account-overview__stat {
+  padding: 22px;
+  border: 1.237px solid var(--acc-border);
+  border-radius: 20px;
+  background: var(--acc-card);
+  box-shadow: 0 2px 5px var(--acc-shadow);
+}
+
+.account-overview__stat-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.account-overview__stat-icon img {
+  width: 22px;
+  height: 22px;
+}
+
+.account-overview__stat--orange .account-overview__stat-icon {
+  background: rgba(245, 81, 2, 0.07);
+}
+
+.account-overview__stat--amber .account-overview__stat-icon {
+  background: rgba(245, 158, 11, 0.07);
+}
+
+.account-overview__stat--blue .account-overview__stat-icon {
+  background: rgba(59, 130, 246, 0.07);
+}
+
+.account-overview__stat-value {
+  padding-top: 14px;
+  font-size: 22px;
+  font-weight: 900;
+  line-height: 33px;
+  letter-spacing: -0.44px;
+  color: var(--acc-text);
+  white-space: nowrap;
+}
+
+.account-overview__stat-label {
+  padding-top: 2px;
+  font-size: 12.5px;
+  font-weight: 700;
+  line-height: 18.75px;
+  white-space: nowrap;
+}
+
+.account-overview__stat--orange .account-overview__stat-label {
+  color: #f55102;
+}
+
+.account-overview__stat--amber .account-overview__stat-label {
+  color: #f59e0b;
+}
+
+.account-overview__stat--blue .account-overview__stat-label {
+  color: #3b82f6;
+}
+
+.account-overview__stat-sub {
+  padding-top: 2px;
+  font-size: 12px;
+  line-height: 18px;
+  color: var(--acc-muted);
+  white-space: nowrap;
+}
+
+.account-overview__recent {
+  margin-top: 32px;
+  padding: 28px;
+  border: 1.237px solid var(--acc-border);
+  border-radius: 22px;
+  background: var(--acc-card);
+  box-shadow: 0 2px 6px var(--acc-shadow);
+}
+
+.account-overview__recent-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.account-overview__recent-title {
+  font-size: 17px;
+  font-weight: 800;
+  line-height: 25.5px;
+  color: var(--acc-text);
+}
+
+.account-overview__book-again {
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 19.5px;
+  color: #f55102;
+  white-space: nowrap;
+}
+
+.account-overview__book-again:hover {
+  text-decoration: underline;
+}
+
+.account-overview__list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding-top: 22px;
+}
+
+.account-overview__row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 16px;
+  border: 0.619px solid var(--acc-border);
+  border-radius: 14px;
+  background: var(--acc-card-2);
+}
+
+.account-overview__photo {
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.account-overview__row-text {
+  flex: 1;
+  min-width: 0;
+}
+
+.account-overview__row-name {
+  font-size: 14.5px;
+  font-weight: 700;
+  line-height: 21.75px;
+  color: var(--acc-text);
+}
+
+.account-overview__row-meta {
+  font-size: 12.5px;
+  line-height: 18.75px;
+  color: var(--acc-muted);
+}
+
+.account-overview__row-right {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-shrink: 0;
+}
+
+.account-overview__stars {
+  display: flex;
+  gap: 1px;
+}
+
+.account-overview__stars img {
+  width: 12px;
+  height: 12px;
+}
+
+.account-overview__price {
+  padding-left: 8px;
+  font-size: 13.5px;
+  font-weight: 700;
+  line-height: 20.25px;
+  color: var(--acc-text);
+}
+
+.account-overview__duration {
+  font-size: 12px;
+  line-height: 18px;
+  color: var(--acc-muted);
+}
+
+.account-overview__tip {
+  margin-top: 24px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 22px 26px;
+  border: 0.619px solid #f0df20;
+  border-radius: 20px;
+  background: linear-gradient(174deg, var(--warm-soft) 0%, var(--warm-soft) 100%);
+}
+
+.account-overview__tip-icon {
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: rgba(245, 81, 2, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.account-overview__tip-icon img {
+  width: 22px;
+  height: 22px;
+}
+
+.account-overview__tip-text {
+  flex: 1;
+  min-width: 0;
+}
+
+.account-overview__tip-title {
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 19.5px;
+  color: #f55102;
+}
+
+.account-overview__tip-body {
+  padding-top: 3px;
+  font-size: 14px;
+  line-height: 22.4px;
+  color: var(--muted);
+}
+
+.account-overview__tip-btn {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 20px;
+  border-radius: 10px;
+  background: var(--grad-orange);
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 19.5px;
+  color: var(--on-brand);
+  white-space: nowrap;
+  transition: opacity 0.15s ease;
+}
+
+.account-overview__tip-btn:hover {
+  opacity: 0.92;
+}
+
+@media (max-width: 768px) {
+  .account-overview__stats {
+    grid-template-columns: 1fr;
+    padding-top: 24px;
+  }
+
+  .account-overview__recent {
+    padding: 20px;
+  }
+
+  .account-overview__row {
+    flex-wrap: wrap;
+  }
+
+  .account-overview__row-right {
+    width: 100%;
+    padding-left: 58px;
+  }
+
+  .account-overview__tip {
+    flex-wrap: wrap;
+    padding: 18px 20px;
+  }
+
+  .account-overview__tip-text {
+    flex-basis: calc(100% - 60px);
+  }
+
+  .account-overview__tip-btn {
+    margin-left: 60px;
+  }
+}
+
+/* live-data additions */
+
+.account-overview__photo.account-avatar-fallback {
+  font-size: 16px;
+}
+
+.account-overview__row-link {
+  padding-left: 6px;
+  font-size: 12.5px;
+  font-weight: 700;
+  color: #f55102;
+  white-space: nowrap;
+}
+
+.account-overview__row-link:hover {
+  text-decoration: underline;
+}
+
+:root[data-theme='dark'] .account-overview__tip {
+  border-color: rgba(240, 223, 32, 0.35);
+  background: linear-gradient(174deg, #2a2410 0%, #201b0a 100%);
+}
+
+:root[data-theme='dark'] .account-overview__tip-body {
+  color: var(--acc-text-2);
+}

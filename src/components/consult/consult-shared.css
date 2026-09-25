@@ -1,0 +1,78 @@
+.consult-card {
+  width: 500px;
+  max-width: 100%;
+  background: var(--surface);
+  border: 1.309px solid var(--border);
+  border-radius: 24px;
+  padding: 44px;
+  filter: drop-shadow(0 24px 40px rgba(0, 0, 0, 0.12));
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.consult-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  border-radius: 12px;
+  white-space: nowrap;
+  transition: opacity 0.15s ease, background-color 0.15s ease, color 0.15s ease;
+}
+
+.consult-btn--primary {
+  height: 50.5px;
+  background: var(--grad-orange);
+  color: var(--on-brand);
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 22.5px;
+}
+
+.consult-btn--primary:hover {
+  opacity: 0.92;
+}
+
+.consult-btn--primary:disabled {
+  background: var(--border);
+  color: var(--muted-2);
+  cursor: default;
+}
+
+.consult-btn--outline {
+  height: 47.6px;
+  border: 1.309px solid var(--border);
+  color: var(--muted);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 21px;
+}
+
+.consult-btn--outline:hover {
+  background: var(--bg-2);
+}
+
+.consult-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 16px;
+  background: rgba(0, 0, 0, 0.6);
+  overflow-y: auto;
+}
+
+.consult-overlay--light {
+  background: var(--bg);
+}
+
+@media (max-width: 560px) {
+  .consult-card {
+    padding: 28px 20px;
+    border-radius: 20px;
+  }
+}

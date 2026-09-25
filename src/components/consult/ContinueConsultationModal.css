@@ -1,0 +1,33 @@
+.continue-modal {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: min(520px, calc(100vw - 32px));
+  max-height: calc(100vh - 32px);
+  overflow-y: auto;
+  text-align: left;
+}
+
+.continue-modal__title {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.25;
+  text-align: center;
+  color: var(--ink);
+}
+
+.continue-modal__text,
+.continue-modal__balance {
+  font-size: 13px;
+  line-height: 1.4;
+  text-align: center;
+  color: var(--muted);
+}
+
+.continue-modal__balance {
+  color: var(--muted-2);
+}
+
+.continue-modal__btn {
+  width: 100%;
+}

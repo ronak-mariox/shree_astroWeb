@@ -1,0 +1,138 @@
+.mangal-dosha-tab {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  min-width: 0;
+  color: var(--ink);
+}
+
+.mangal-dosha-tab__title {
+  padding-bottom: 8px;
+  font-size: 20px;
+  font-weight: 800;
+  line-height: 30px;
+  color: var(--ink);
+}
+
+.mangal-dosha-tab__status {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 24px;
+  padding: 6px 14px;
+  border: 0.655px solid rgba(34, 197, 94, 0.2);
+  border-radius: 100px;
+  background: rgba(34, 197, 94, 0.1);
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 19.5px;
+  color: #16a34a;
+}
+
+.mangal-dosha-tab__status-icon {
+  display: block;
+  flex-shrink: 0;
+  width: 15px;
+  height: 15px;
+}
+
+.mangal-dosha-tab__summary {
+  width: 100%;
+  font-size: 14.5px;
+  font-weight: 400;
+  line-height: 25.375px;
+  color: var(--muted);
+}
+
+.mangal-dosha-tab__note {
+  width: 100%;
+  margin-top: 20px;
+  padding: 20px;
+  border: 0.655px solid var(--border-2);
+  border-radius: 14px;
+  background: var(--surface-2);
+}
+
+.mangal-dosha-tab__note p {
+  font-size: 13.5px;
+  font-weight: 400;
+  line-height: 22.275px;
+  color: var(--muted);
+}
+
+@media (max-width: 768px) {
+  .mangal-dosha-tab__title {
+    font-size: 18px;
+    line-height: 27px;
+  }
+
+  .mangal-dosha-tab__note {
+    padding: 16px;
+  }
+}
+
+/* --- backend-wired additions --- */
+
+.mangal-dosha-tab__status--present {
+  border-color: rgba(220, 38, 38, 0.2);
+  background: rgba(220, 38, 38, 0.08);
+  color: #dc2626;
+}
+
+.mangal-dosha-tab__severity {
+  margin-top: -12px;
+  margin-bottom: 16px;
+  font-size: 13px;
+  line-height: 19.5px;
+  color: var(--muted);
+}
+
+.mangal-dosha-tab__list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.mangal-dosha-tab__row {
+  padding: 18px 20px;
+  border: 0.655px solid var(--border-2);
+  border-radius: 14px;
+  background: var(--surface-2);
+}
+
+.mangal-dosha-tab__row-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px 16px;
+}
+
+.mangal-dosha-tab__row-head .mangal-dosha-tab__status {
+  margin-bottom: 0;
+}
+
+.mangal-dosha-tab__row .mangal-dosha-tab__severity {
+  margin: 8px 0 0;
+}
+
+.mangal-dosha-tab__row-name {
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 22.5px;
+  color: var(--ink);
+}
+
+.mangal-dosha-tab__row-text {
+  padding-top: 8px;
+  font-size: 13.5px;
+  line-height: 22px;
+  color: var(--muted);
+}
+
+.mangal-dosha-tab .section-status {
+  margin-top: 8px;
+}

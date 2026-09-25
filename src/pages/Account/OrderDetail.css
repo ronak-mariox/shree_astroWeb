@@ -1,0 +1,326 @@
+.order-detail {
+  color: var(--acc-text, var(--ink));
+}
+
+.order-detail__title {
+  font-size: 28px;
+  font-weight: 900;
+  line-height: 42px;
+  letter-spacing: -0.7px;
+  color: var(--acc-text, var(--ink));
+}
+
+.order-detail__subtitle {
+  padding-top: 4px;
+  font-size: 14px;
+  line-height: 21px;
+  color: var(--acc-muted, var(--muted-2));
+}
+
+.order-detail__back {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 36px;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 19.5px;
+  color: var(--acc-muted, var(--muted));
+  transition: color 0.15s ease;
+}
+
+.order-detail__back:hover {
+  color: var(--orange);
+}
+
+.order-detail__back-icon,
+.order-detail__back-icon img {
+  display: inline-flex;
+  width: 14px;
+  height: 14px;
+}
+
+.order-detail__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 340px;
+  gap: 24px;
+  align-items: start;
+  margin-top: 24px;
+}
+
+.order-detail__main,
+.order-detail__side {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.order-detail__card {
+  padding: 22px 24px;
+  border: 1.237px solid var(--acc-border, var(--border));
+  border-radius: 20px;
+  background: var(--acc-card, var(--surface));
+}
+
+.order-detail__card-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.order-detail__ref {
+  font-size: 17px;
+  font-weight: 800;
+  line-height: 25px;
+}
+
+.order-detail__placed {
+  padding-top: 2px;
+  font-size: 13px;
+  line-height: 19.5px;
+  color: var(--acc-muted, var(--muted-2));
+}
+
+.order-detail__card-title {
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  color: var(--acc-muted, var(--muted));
+}
+
+.order-detail__items {
+  margin: 18px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.order-detail__item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 0;
+  border-top: 1px solid var(--acc-border, var(--border));
+}
+
+.order-detail__item-img {
+  flex-shrink: 0;
+  width: 56px;
+  height: 56px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.order-detail__item-img--empty {
+  display: block;
+  background: var(--acc-card-2, var(--surface-2));
+  border: 1px solid var(--acc-border, var(--border));
+}
+
+.order-detail__item-body {
+  flex: 1;
+  min-width: 0;
+}
+
+.order-detail__item-name {
+  font-size: 14.5px;
+  font-weight: 700;
+  line-height: 21px;
+}
+
+.order-detail__item-name a {
+  color: inherit;
+}
+
+.order-detail__item-name a:hover {
+  color: var(--orange);
+}
+
+.order-detail__item-sub {
+  font-size: 12.5px;
+  line-height: 18px;
+  color: var(--acc-muted, var(--muted-2));
+}
+
+.order-detail__item-total {
+  font-size: 14.5px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.order-detail__totals {
+  margin: 8px 0 0;
+  padding-top: 12px;
+  border-top: 1px solid var(--acc-border, var(--border));
+}
+
+.order-detail__total-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 4px 0;
+  font-size: 13.5px;
+  line-height: 20px;
+  color: var(--acc-muted, var(--muted));
+}
+
+.order-detail__total-row dd {
+  margin: 0;
+  color: var(--acc-text, var(--ink));
+}
+
+.order-detail__total-row--grand {
+  margin-top: 4px;
+  padding-top: 8px;
+  border-top: 1px dashed var(--acc-border, var(--border));
+  font-size: 15px;
+  font-weight: 800;
+  color: var(--acc-text, var(--ink));
+}
+
+.order-detail__address {
+  margin-top: 10px;
+  font-size: 14px;
+  line-height: 22px;
+  overflow-wrap: anywhere;
+}
+
+.order-detail__side .account-orders__timeline {
+  grid-template-columns: minmax(0, 1fr);
+  gap: 14px;
+  margin-top: 14px;
+}
+
+.order-detail__side .account-orders__step {
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+}
+
+.order-detail__side .account-orders__step::before {
+  display: none;
+}
+
+.order-detail__side .account-orders__step-date {
+  margin-left: auto;
+}
+
+.order-detail__cancel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin-top: 18px;
+  padding: 11px 16px;
+  border: 1.237px solid rgba(239, 68, 68, 0.4);
+  border-radius: 12px;
+  background: transparent;
+  font-size: 13.5px;
+  font-weight: 700;
+  color: #ef4444;
+  transition: background-color 0.15s ease;
+}
+
+.order-detail__cancel:hover:not(:disabled) {
+  background: rgba(239, 68, 68, 0.06);
+}
+
+.order-detail__cancel:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.order-detail__note {
+  margin-top: 14px;
+  font-size: 13px;
+  line-height: 19.5px;
+  color: var(--acc-muted, var(--muted));
+}
+
+.order-detail__error {
+  margin-top: 12px;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #ef4444;
+}
+
+@media (max-width: 1100px) {
+  .order-detail__grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .order-detail__title {
+    font-size: 24px;
+    line-height: 34px;
+  }
+
+  .order-detail__back {
+    margin-top: 24px;
+  }
+
+  .order-detail__card {
+    padding: 18px 16px;
+  }
+}
+
+/* ------------------------------------------------ rate a delivered product */
+
+.order-detail__item-review {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding-top: 6px;
+}
+
+.order-detail__rate {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px;
+  border: 1px solid rgba(245, 81, 2, 0.5);
+  border-radius: 999px;
+  background: transparent;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 18px;
+  color: var(--orange);
+  cursor: pointer;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.order-detail__rate:hover {
+  background: var(--orange);
+  color: var(--on-brand);
+}
+
+.order-detail__reviewed {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: rgba(44, 170, 2, 0.1);
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 18px;
+  color: #2caa02;
+}
+
+.order-detail__reviewed-star {
+  color: #ffbc01;
+}
+
+@media (max-width: 600px) {
+  .order-detail__item {
+    flex-wrap: wrap;
+  }
+
+  .order-detail__item-total {
+    width: 100%;
+    padding-left: 70px;
+  }
+}

@@ -1,0 +1,63 @@
+.matching-tab__heading {
+  font-size: 20px;
+  font-weight: 800;
+  line-height: 30px;
+  color: var(--ink);
+}
+
+.matching-tab__body {
+  margin-top: 24px;
+}
+
+.matching-tab__info {
+  padding: 20px;
+  margin-bottom: 20px;
+  background: var(--warm-soft);
+  border: 0.655px solid #f0e0a0;
+  border-radius: 14px;
+}
+
+.matching-tab__info-text {
+  max-width: 845px;
+  font-size: 13.5px;
+  font-weight: 400;
+  line-height: 20.25px;
+  color: var(--muted);
+}
+
+.matching-tab__cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 45px;
+  padding: 0 24px;
+  border-radius: 12px;
+  background: var(--grad-orange);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 21px;
+  color: var(--on-brand);
+  white-space: nowrap;
+  transition: opacity 0.15s ease;
+}
+
+.matching-tab__cta:hover {
+  opacity: 0.92;
+}
+
+@media (max-width: 600px) {
+  .matching-tab__cta {
+    width: 100%;
+    white-space: normal;
+    height: auto;
+    min-height: 45px;
+    padding: 10px 16px;
+    text-align: center;
+  }
+}
+
+@media print {
+  .matching-tab__cta {
+    display: none;
+  }
+}

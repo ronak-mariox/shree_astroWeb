@@ -1,0 +1,150 @@
+/* Coupon entry shared by checkout, puja booking and wallet top-up. */
+
+.coupon-box {
+  margin-top: 14px;
+  font-size: 13px;
+  line-height: 19.5px;
+}
+
+.coupon-box__row {
+  display: flex;
+  gap: 8px;
+}
+
+.coupon-box__input {
+  flex: 1 1 0;
+  min-width: 0;
+  height: 42px;
+  padding: 0 14px;
+  border-radius: 11px;
+  border: 1.237px solid var(--border, var(--border));
+  background: var(--white, var(--surface));
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: var(--ink, var(--ink));
+  outline: none;
+  text-transform: uppercase;
+}
+
+.coupon-box__input::placeholder {
+  font-weight: 500;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--muted-2);
+}
+
+.coupon-box__input:focus {
+  border-color: var(--orange, #f55102);
+}
+
+.coupon-box__apply {
+  flex-shrink: 0;
+  height: 42px;
+  padding: 0 18px;
+  border: 0;
+  border-radius: 11px;
+  background: var(--orange, #f55102);
+  color: var(--on-brand);
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: opacity 0.15s ease;
+}
+
+.coupon-box__apply:disabled,
+.coupon-box__input:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.coupon-box__error {
+  margin-top: 6px;
+  font-weight: 600;
+  color: var(--red, #e63e4b);
+}
+
+.coupon-box__note,
+.coupon-box__hint {
+  margin-top: 6px;
+  font-size: 12px;
+  line-height: 18px;
+  color: var(--muted-2);
+}
+
+.coupon-box--applied {
+  padding: 10px 14px;
+  border-radius: 11px;
+  background: rgba(34, 197, 94, 0.07);
+  border: 1.237px solid rgba(34, 197, 94, 0.25);
+}
+
+.coupon-box__applied {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.coupon-box__applied-text {
+  color: #15803d;
+}
+
+.coupon-box__applied-text strong {
+  font-weight: 800;
+  letter-spacing: 0.05em;
+}
+
+.coupon-box__remove {
+  flex-shrink: 0;
+  border: 0;
+  background: none;
+  padding: 0;
+  font-size: 12.5px;
+  font-weight: 700;
+  color: var(--red, #e63e4b);
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/* On the dark wallet card */
+.coupon-box--dark .coupon-box__input {
+  border-color: rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--on-brand);
+}
+
+.coupon-box--dark .coupon-box__input::placeholder {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.coupon-box--dark .coupon-box__input:focus {
+  border-color: #ffbc01;
+}
+
+.coupon-box--dark .coupon-box__apply {
+  background: #ffbc01;
+  color: var(--black);
+}
+
+.coupon-box--dark .coupon-box__error {
+  color: #ffb4bb;
+}
+
+.coupon-box--dark .coupon-box__note,
+.coupon-box--dark .coupon-box__hint {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.coupon-box--dark.coupon-box--applied {
+  background: rgba(34, 197, 94, 0.14);
+  border-color: rgba(34, 197, 94, 0.4);
+}
+
+.coupon-box--dark .coupon-box__applied-text {
+  color: #bbf7d0;
+}
+
+.coupon-box--dark .coupon-box__remove {
+  color: #ffb4bb;
+}

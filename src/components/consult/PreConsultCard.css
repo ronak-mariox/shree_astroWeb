@@ -1,0 +1,188 @@
+.pre-card__head {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.pre-card__avatar-wrap {
+  position: relative;
+  flex-shrink: 0;
+  width: 88px;
+  height: 88px;
+}
+
+.pre-card__avatar-ring {
+  width: 88px;
+  height: 88px;
+  padding: 3px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #f55102 0%, #ffbc01 100%);
+}
+
+.pre-card__avatar {
+  width: 82px;
+  height: 82px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.pre-card__online {
+  position: absolute;
+  left: 68px;
+  top: 68px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #22c55e;
+  border: 1.964px solid var(--on-brand);
+}
+
+.pre-card__info {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.pre-card__name-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.pre-card__name {
+  font-size: 18px;
+  font-weight: 800;
+  line-height: 27px;
+  color: var(--ink);
+  white-space: nowrap;
+}
+
+.pre-card__tick {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+
+.pre-card__specialty {
+  padding-top: 3px;
+  font-size: 13px;
+  line-height: 19.5px;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+.pre-card__rating {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding-top: 4px;
+}
+
+.pre-card__stars {
+  display: flex;
+  gap: 1px;
+}
+
+.pre-card__star {
+  width: 12px;
+  height: 12px;
+}
+
+.pre-card__reviews {
+  font-size: 12px;
+  line-height: 18px;
+  color: var(--muted-2);
+  white-space: nowrap;
+}
+
+.pre-card__table {
+  margin-top: 32px;
+  background: var(--bg-2);
+  border-radius: 14px;
+  padding: 18px 20px;
+}
+
+.pre-card__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 0;
+  border-bottom: 0.655px solid var(--border);
+}
+
+.pre-card__row:last-child {
+  border-bottom: 0;
+}
+
+.pre-card__label {
+  font-size: 13px;
+  line-height: 19.5px;
+  color: var(--muted-2);
+}
+
+.pre-card__value {
+  font-size: 13.5px;
+  font-weight: 700;
+  line-height: 20.25px;
+  color: var(--ink);
+}
+
+.pre-card__wallet {
+  margin-top: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 18px;
+  border-radius: 12px;
+  background: rgba(34, 197, 94, 0.06);
+  border: 1.309px solid #86efac;
+}
+
+.pre-card__wallet-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.pre-card__wallet-icon {
+  width: 16px;
+  height: 16px;
+}
+
+.pre-card__wallet-label {
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 19.5px;
+  color: #15803d;
+}
+
+.pre-card__wallet-amount {
+  font-size: 16px;
+  font-weight: 800;
+  line-height: 24px;
+  color: #15803d;
+}
+
+.pre-card__primary {
+  margin-top: 28px;
+}
+
+.pre-card__primary-icon {
+  width: 18px;
+  height: 18px;
+}
+
+.pre-card__cancel {
+  margin-top: 12px;
+}
+
+@media (max-width: 560px) {
+  .pre-card__name,
+  .pre-card__specialty,
+  .pre-card__reviews {
+    white-space: normal;
+  }
+  .pre-card__name {
+    font-size: 17px;
+  }
+}

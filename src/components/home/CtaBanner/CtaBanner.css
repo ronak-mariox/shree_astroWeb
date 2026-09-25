@@ -1,0 +1,192 @@
+.cta-banner {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  border-radius: 15px;
+  background: linear-gradient(76.25deg, #eddd3b 1.32%, var(--off-white) 50%, #eddd3b 98.68%);
+  overflow: hidden;
+}
+
+.cta-banner__wave {
+  position: absolute;
+  top: -54.83px;
+  width: 898.047px;
+  height: 582.258px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.1;
+  pointer-events: none;
+}
+
+.cta-banner__wave img {
+  flex: none;
+  width: 582.258px;
+  height: 898.046px;
+  max-width: none;
+}
+
+.cta-banner__wave--left {
+  left: -328.32px;
+}
+
+.cta-banner__wave--left img {
+  transform: rotate(90deg);
+}
+
+.cta-banner__wave--right {
+  right: -335.4px;
+}
+
+.cta-banner__wave--right img {
+  transform: rotate(90deg) scaleY(-1);
+}
+
+.cta-banner__content {
+  position: relative;
+  z-index: 1;
+  padding: 25px 34px 0;
+}
+
+.cta-banner__line {
+  font-size: 26px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--black);
+  white-space: nowrap;
+}
+
+.cta-banner__line + .cta-banner__line {
+  margin-top: 10px;
+}
+
+.cta-banner__line strong {
+  font-weight: 600;
+}
+
+.cta-banner__bar {
+  font-weight: 700;
+  white-space: pre;
+}
+
+.cta-banner__actions {
+  display: flex;
+  align-items: center;
+  gap: 17px;
+  margin-top: 16px;
+}
+
+.cta-banner__btn {
+  display: inline-flex;
+  align-items: center;
+  width: 207px;
+  height: 45px;
+  padding: 0 14px 0 6px;
+  border-radius: var(--radius-pill);
+  background: var(--yellow);
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: capitalize;
+  color: var(--black);
+  white-space: nowrap;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.cta-banner__btn span {
+  flex: 1;
+  text-align: center;
+}
+
+.cta-banner__btn--chat {
+  box-shadow: 0 4px 4px var(--shadow);
+}
+
+.cta-banner__btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 14px var(--shadow);
+}
+
+.cta-banner__btn-icon {
+  width: 37px;
+  height: 37px;
+  object-fit: cover;
+}
+
+.cta-banner__figure {
+  position: absolute;
+  right: 189px;
+  top: 0;
+  width: 192px;
+  height: 200px;
+  pointer-events: none;
+}
+
+.cta-banner__halo {
+  position: absolute;
+  left: 47px;
+  top: 10.1px;
+  width: 104.152px;
+  height: 108.657px;
+  mix-blend-mode: color-dodge;
+}
+
+.cta-banner__sage {
+  position: absolute;
+  left: 0;
+  top: 42px;
+  width: 192px;
+  height: 158px;
+  overflow: hidden;
+}
+
+.cta-banner__sage img {
+  position: absolute;
+  left: -57.5px;
+  top: -25.6px;
+  width: 306px;
+  height: 209px;
+  max-width: none;
+}
+
+@media (max-width: 1280px) {
+  .cta-banner__figure {
+    right: 40px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .cta-banner {
+    height: auto;
+    min-height: 200px;
+  }
+  .cta-banner__content {
+    padding: 24px 24px 24px;
+    max-width: calc(100% - 200px);
+  }
+  .cta-banner__line {
+    font-size: 20px;
+    white-space: normal;
+  }
+  .cta-banner__figure {
+    right: 8px;
+    top: auto;
+    bottom: 0;
+  }
+  .cta-banner__actions {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+}
+
+@media (max-width: 768px) {
+  .cta-banner__content {
+    max-width: none;
+    padding-bottom: 170px;
+  }
+  .cta-banner__line {
+    font-size: 18px;
+  }
+  .cta-banner__figure {
+    right: 16px;
+  }
+}

@@ -1,0 +1,94 @@
+.stats-band {
+  position: relative;
+  min-height: 200px;
+  border-radius: 15px;
+  background: var(--navy);
+  color: var(--on-brand);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.stats-band__wave {
+  position: absolute;
+  top: -54.83px;
+  width: 898.05px;
+  height: 582.26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.1;
+  pointer-events: none;
+}
+
+.stats-band__wave img {
+  width: 582.26px;
+  height: 898.05px;
+  max-width: none;
+  flex: none;
+  transform: rotate(90deg);
+}
+
+.stats-band__wave--left {
+  left: -328.32px;
+}
+
+.stats-band__wave--right {
+  right: -335.4px;
+}
+
+.stats-band__wave--right img {
+  transform: rotate(90deg) scaleY(-1);
+}
+
+.stats-band__list {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 199px;
+  padding: 57px 24px 56px;
+  text-align: center;
+}
+
+.stats-band__value {
+  font-size: 36px;
+  font-weight: 600;
+  line-height: 1.5;
+  white-space: nowrap;
+}
+
+.stats-band__label {
+  margin-top: -1px;
+  font-size: 22px;
+  font-weight: 300;
+  line-height: 1.5;
+  white-space: nowrap;
+}
+
+@media (max-width: 1200px) {
+  .stats-band__list {
+    gap: 96px;
+  }
+}
+
+@media (max-width: 900px) {
+  .stats-band__list {
+    gap: 48px;
+    padding: 40px 24px;
+  }
+  .stats-band__value {
+    font-size: 30px;
+  }
+  .stats-band__label {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 640px) {
+  .stats-band__list {
+    flex-direction: column;
+    gap: 20px;
+  }
+}

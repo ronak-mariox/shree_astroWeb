@@ -1,0 +1,130 @@
+.trust {
+  background: var(--bg);
+  padding: 80px 0;
+}
+
+.trust__inner {
+  max-width: 1248px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.trust__head {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
+.trust__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 28px;
+  padding: 5px 14px;
+  border-radius: 100px;
+  background: rgba(245, 81, 2, 0.08);
+  color: var(--orange);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 18px;
+  letter-spacing: 0.72px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.trust__badge-icon {
+  width: 12px;
+  height: 12px;
+}
+
+.trust__title {
+  font-size: 38px;
+  font-weight: 800;
+  line-height: 57px;
+  letter-spacing: -0.95px;
+  color: var(--ink);
+  text-align: center;
+}
+
+.trust__grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 24px;
+  margin-top: 56px;
+}
+
+.trust__card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 32px 28px;
+  border: 1.3px solid var(--border);
+  border-radius: 20px;
+  background: var(--surface);
+  box-shadow: 0 2px 6px var(--shadow);
+}
+
+.trust__tile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, rgba(245, 81, 2, 0.08) 0%, rgba(255, 188, 1, 0.12) 100%);
+}
+
+.trust__tile-icon {
+  width: 28px;
+  height: 28px;
+}
+
+.trust__card-title {
+  margin-top: 20px;
+  font-size: 15.5px;
+  font-weight: 700;
+  line-height: 20.925px;
+  color: var(--ink);
+  text-align: center;
+  white-space: nowrap;
+}
+
+.trust__card-desc {
+  max-width: 224px;
+  margin-top: 10px;
+  font-size: 13.5px;
+  font-weight: 400;
+  line-height: 22.275px;
+  color: var(--muted);
+  text-align: center;
+}
+
+@media (max-width: 1024px) {
+  .trust__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .trust {
+    padding: 56px 0;
+  }
+  .trust__title {
+    font-size: 30px;
+    line-height: 42px;
+    letter-spacing: -0.6px;
+  }
+  .trust__grid {
+    margin-top: 36px;
+  }
+  .trust__card-title {
+    white-space: normal;
+  }
+}
+
+@media (max-width: 560px) {
+  .trust__grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

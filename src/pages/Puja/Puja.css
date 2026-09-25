@@ -1,0 +1,357 @@
+.puja-list {
+  background: var(--bg);
+  padding: 56px 40px;
+  color: var(--ink);
+}
+
+.puja-list__inner {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.puja-list__head {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.puja-list__pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 14px;
+  border: 0.619px solid rgba(245, 81, 2, 0.15);
+  border-radius: 100px;
+  background: rgba(245, 81, 2, 0.07);
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 18px;
+  letter-spacing: 0.84px;
+  color: var(--orange);
+  white-space: nowrap;
+}
+
+.puja-list__pill-icon {
+  width: 12px;
+  height: 12px;
+}
+
+.puja-list__title {
+  margin-top: 17px;
+  font-size: 42px;
+  font-weight: 600;
+  line-height: 46.2px;
+  letter-spacing: -1.26px;
+  color: var(--ink);
+}
+
+.puja-list__subtitle {
+  max-width: 520px;
+  margin-top: 12px;
+  font-size: 15.5px;
+  font-weight: 400;
+  line-height: 26.35px;
+  color: var(--muted);
+}
+
+.puja-list__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  margin-top: 52px;
+}
+
+.puja-list__card {
+  display: flex;
+  flex-direction: column;
+  background: var(--surface);
+  border: 1.237px solid var(--border);
+  border-radius: 24px;
+  box-shadow: 0 24px 80px var(--shadow);
+  overflow: hidden;
+}
+
+.puja-list__media {
+  position: relative;
+  height: 200px;
+  overflow: hidden;
+}
+
+.puja-list__photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.puja-list__shade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 60%);
+}
+
+.puja-list__badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  padding: 4px 10px;
+  border-radius: 8px;
+  background: rgba(245, 81, 2, 0.9);
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 16.5px;
+  color: var(--on-brand);
+  white-space: nowrap;
+}
+
+.puja-list__label {
+  position: absolute;
+  left: 16px;
+  bottom: 12px;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 16.5px;
+  color: rgba(255, 255, 255, 0.7);
+  white-space: nowrap;
+}
+
+.puja-list__body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 20px 22px 24px;
+}
+
+.puja-list__name {
+  font-size: 18px;
+  font-weight: 800;
+  line-height: 27px;
+  letter-spacing: -0.18px;
+  color: var(--ink);
+}
+
+.puja-list__tagline {
+  margin-top: 4px;
+  font-size: 12.5px;
+  font-weight: 400;
+  line-height: 18.75px;
+  color: var(--muted-2);
+}
+
+.puja-list__rating {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 10px;
+}
+
+.puja-list__stars {
+  display: inline-flex;
+  gap: 1px;
+}
+
+.puja-list__star {
+  width: 11px;
+  height: 11px;
+}
+
+.puja-list__rating-text {
+  font-size: 12px;
+  line-height: 18px;
+  color: var(--muted-2);
+  white-space: nowrap;
+}
+
+.puja-list__meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.puja-list__meta-item {
+  display: inline-flex;
+  align-items: center;
+  min-width: 0;
+  font-size: 12.5px;
+  line-height: 18.75px;
+  color: var(--muted-2);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.puja-list__meta-item--duration {
+  gap: 5px;
+  font-size: 13px;
+  line-height: 19.5px;
+  flex-shrink: 0;
+}
+
+.puja-list__meta-item--pandit {
+  gap: 4px;
+}
+
+.puja-list__meta-icon {
+  width: 13px;
+  height: 13px;
+  flex-shrink: 0;
+}
+
+.puja-list__foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: auto;
+  padding-top: 16px;
+}
+
+.puja-list__price {
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 33px;
+  letter-spacing: -0.44px;
+  color: var(--ink);
+  white-space: nowrap;
+}
+
+.puja-list__book {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 20px;
+  border-radius: 10px;
+  background: var(--grad-orange);
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 19.5px;
+  color: var(--on-brand);
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: opacity 0.15s ease;
+}
+
+.puja-list__book:hover {
+  opacity: 0.92;
+}
+
+@media (max-width: 1024px) {
+  .puja-list__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .puja-list {
+    padding: 44px 24px 56px;
+  }
+  .puja-list__title {
+    font-size: 32px;
+    line-height: 38px;
+    letter-spacing: -0.8px;
+  }
+  .puja-list__grid {
+    margin-top: 36px;
+  }
+}
+
+@media (max-width: 640px) {
+  .puja-list {
+    padding: 36px 16px 48px;
+  }
+  .puja-list__grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 20px;
+  }
+  .puja-list__card {
+    box-shadow: 0 12px 40px var(--shadow);
+  }
+}
+
+/* ---------------------------------------------------- live data additions */
+
+.puja-list__chips {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 32px;
+}
+
+.puja-list__chip {
+  padding: 8px 18px;
+  border-radius: 999px;
+  border: 1.237px solid var(--border);
+  background: var(--surface);
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 19.5px;
+  color: var(--ink-2);
+  white-space: nowrap;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.puja-list__chip:hover {
+  background: var(--brand-soft);
+}
+
+.puja-list__chip--active,
+.puja-list__chip--active:hover {
+  border-color: transparent;
+  background: var(--grad-orange);
+  color: var(--on-brand);
+}
+
+.puja-list__chips + .puja-list__grid {
+  margin-top: 32px;
+}
+
+.puja-list__card--skeleton {
+  pointer-events: none;
+}
+
+.puja-list__old-price {
+  margin-left: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--muted-2);
+}
+
+.puja-list__inline-error {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 13px;
+  color: var(--red);
+}
+
+.puja-list__more {
+  display: flex;
+  justify-content: center;
+  margin-top: 36px;
+}
+
+.puja-list__more-btn {
+  padding: 12px 28px;
+  border-radius: 999px;
+  border: 1.237px solid rgba(245, 81, 2, 0.4);
+  background: var(--surface);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--orange);
+  transition: background 0.15s ease;
+}
+
+.puja-list__more-btn:hover:not(:disabled) {
+  background: var(--brand-soft);
+}
+
+.puja-list__more-btn:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+
+.puja-list > .puja-list__inner > .ui-state {
+  margin-top: 52px;
+}

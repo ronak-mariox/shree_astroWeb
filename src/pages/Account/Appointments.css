@@ -1,0 +1,412 @@
+.account-appointments {
+  color: var(--acc-text, var(--ink));
+  min-width: 0;
+}
+
+.account-appointments__title {
+  font-size: 28px;
+  font-weight: 900;
+  line-height: 42px;
+  letter-spacing: -0.7px;
+  color: var(--acc-text, var(--ink));
+}
+
+.account-appointments__subtitle {
+  padding-top: 4px;
+  font-size: 14px;
+  line-height: 21px;
+  color: var(--acc-muted, var(--muted-2));
+}
+
+.account-appointments__tabs-wrap {
+  margin-top: 36px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.account-appointments__tabs-wrap::-webkit-scrollbar {
+  display: none;
+}
+
+.account-appointments__tabs {
+  display: inline-flex;
+  gap: 4px;
+  padding: 4px;
+  border-radius: 12px;
+  background: var(--acc-tabs, var(--surface-3));
+}
+
+.account-appointments__tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  height: 38.7px;
+  padding: 0 20px;
+  border-radius: 9px;
+  font-size: 13.5px;
+  font-weight: 500;
+  line-height: 20.25px;
+  color: var(--acc-muted, var(--muted-2));
+  white-space: nowrap;
+  transition: color 0.15s ease, background-color 0.15s ease;
+}
+
+.account-appointments__tab:hover {
+  color: var(--acc-text, var(--ink));
+}
+
+.account-appointments__tab--active,
+.account-appointments__tab--active:hover {
+  font-weight: 700;
+  color: var(--acc-text, var(--ink));
+  background: var(--acc-card, var(--surface));
+  box-shadow: 0 2px 4px var(--shadow);
+}
+
+.account-appointments__tab-count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--acc-count, var(--border));
+  font-size: 11px;
+  font-weight: 800;
+  line-height: 16.5px;
+  color: var(--acc-muted, var(--muted));
+}
+
+.account-appointments__tab--active .account-appointments__tab-count {
+  background: linear-gradient(135deg, #f55102 0%, #ffbc01 100%);
+  color: var(--on-brand);
+}
+
+.account-appointments__list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding-top: 28px;
+}
+
+.account-appointments__empty {
+  padding: 40px 24px;
+  border: 1.237px dashed var(--acc-border, var(--border));
+  border-radius: 20px;
+  font-size: 13.5px;
+  line-height: 20px;
+  text-align: center;
+  color: var(--acc-muted, var(--muted-2));
+}
+
+.account-appointments__card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 20px 24px;
+  border: 1.237px solid var(--acc-border, var(--border));
+  border-radius: 20px;
+  background: var(--acc-card, var(--surface));
+  box-shadow: 0 2px 4px var(--shadow);
+}
+
+.account-appointments__card--upcoming {
+  border-color: rgba(245, 81, 2, 0.18);
+  box-shadow: 0 4px 10px rgba(245, 81, 2, 0.07);
+}
+
+.account-appointments__avatar {
+  flex-shrink: 0;
+  width: 68px;
+  height: 68px;
+  border: 1.856px solid rgba(245, 81, 2, 0.25);
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.account-appointments__avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.account-appointments__body {
+  flex: 1;
+  min-width: 0;
+}
+
+.account-appointments__head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.account-appointments__who {
+  min-width: 0;
+}
+
+.account-appointments__name {
+  font-size: 15px;
+  font-weight: 800;
+  line-height: 22.5px;
+  color: var(--acc-text, var(--ink));
+}
+
+.account-appointments__specialty {
+  padding-top: 2px;
+  font-size: 12.5px;
+  line-height: 18.75px;
+  color: var(--acc-muted, var(--muted-2));
+}
+
+.account-appointments__pill {
+  flex-shrink: 0;
+  padding: 4px 12px;
+  border-radius: 100px;
+  font-size: 11.5px;
+  font-weight: 700;
+  line-height: 17.25px;
+  letter-spacing: 0.575px;
+  white-space: nowrap;
+}
+
+.account-appointments__pill--upcoming {
+  background: rgba(245, 81, 2, 0.1);
+  color: #f55102;
+}
+
+.account-appointments__pill--completed {
+  background: rgba(34, 197, 94, 0.1);
+  color: #22c55e;
+}
+
+.account-appointments__pill--cancelled {
+  background: rgba(239, 68, 68, 0.1);
+  color: #ef4444;
+}
+
+.account-appointments__meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 14px;
+  padding-top: 4px;
+}
+
+.account-appointments__meta-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 12.5px;
+  line-height: 18.75px;
+  color: var(--acc-meta, var(--muted));
+  white-space: nowrap;
+}
+
+.account-appointments__meta-icon {
+  display: inline-flex;
+  width: 12px;
+  height: 12px;
+}
+
+.account-appointments__meta-icon img {
+  width: 12px;
+  height: 12px;
+}
+
+.account-appointments__meta-item--price {
+  font-weight: 700;
+  color: #f55102;
+}
+
+.account-appointments__meta-item--id {
+  font-size: 12px;
+  line-height: 18px;
+  color: var(--acc-muted, var(--muted-2));
+}
+
+.account-appointments__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  padding-top: 14px;
+}
+
+.account-appointments__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  height: 36.7px;
+  padding: 8px 16px;
+  border: 0.619px solid var(--acc-border, var(--border));
+  border-radius: 9px;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 19.5px;
+  color: var(--acc-btn-text, var(--muted));
+  white-space: nowrap;
+  transition: opacity 0.15s ease, background-color 0.15s ease;
+}
+
+.account-appointments__btn:hover {
+  background: var(--acc-card-2, var(--surface-2));
+}
+
+.account-appointments__btn--call {
+  border: 0;
+  background: linear-gradient(90deg, #f55102 0%, #ffbc01 100%);
+  font-weight: 700;
+  color: var(--on-brand);
+}
+
+.account-appointments__btn--call:hover {
+  background: linear-gradient(90deg, #f55102 0%, #ffbc01 100%);
+  opacity: 0.92;
+}
+
+.account-appointments__btn--chat {
+  border-color: rgba(245, 81, 2, 0.18);
+  background: rgba(245, 81, 2, 0.07);
+  font-weight: 700;
+  color: #f55102;
+}
+
+.account-appointments__btn--chat:hover {
+  background: rgba(245, 81, 2, 0.12);
+}
+
+.account-appointments__btn-icon {
+  display: inline-flex;
+  width: 12px;
+  height: 12px;
+}
+
+.account-appointments__btn-icon img {
+  width: 12px;
+  height: 12px;
+}
+
+.account-appointments__rated {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  height: 36.7px;
+}
+
+.account-appointments__star {
+  display: inline-flex;
+  width: 13px;
+  height: 13px;
+}
+
+.account-appointments__star img {
+  width: 13px;
+  height: 13px;
+}
+
+.account-appointments__rated-text {
+  padding-left: 4px;
+  font-size: 12px;
+  line-height: 18px;
+  color: var(--acc-muted, var(--muted-2));
+}
+
+.account-appointments__footer {
+  padding-top: 28px;
+}
+
+.account-appointments__book {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  height: 47px;
+  padding: 13px 28px;
+  border-radius: 11px;
+  background: linear-gradient(90deg, #f55102 0%, #ffbc01 100%);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 21px;
+  color: var(--on-brand);
+  white-space: nowrap;
+  transition: opacity 0.15s ease;
+}
+
+.account-appointments__book:hover {
+  opacity: 0.92;
+}
+
+.account-appointments__book-icon {
+  display: inline-flex;
+  width: 14px;
+  height: 14px;
+}
+
+.account-appointments__book-icon img {
+  width: 14px;
+  height: 14px;
+}
+
+@media (max-width: 768px) {
+  .account-appointments__title {
+    font-size: 24px;
+    line-height: 34px;
+  }
+
+  .account-appointments__tabs-wrap {
+    margin-top: 24px;
+  }
+
+  .account-appointments__card {
+    align-items: flex-start;
+    padding: 18px;
+  }
+
+  .account-appointments__avatar {
+    width: 56px;
+    height: 56px;
+  }
+}
+
+@media (max-width: 560px) {
+  .account-appointments__card {
+    flex-wrap: wrap;
+  }
+
+  .account-appointments__body {
+    flex-basis: 100%;
+  }
+
+  .account-appointments__head {
+    flex-wrap: wrap;
+  }
+
+  .account-appointments__book {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* live-data additions */
+
+.account-appointments__avatar .account-avatar-fallback {
+  width: 100%;
+  height: 100%;
+  font-size: 24px;
+}
+
+.account-appointments__stars img {
+  width: 13px;
+  height: 13px;
+}
+
+.account-appointments__list .account-state {
+  margin: 0;
+}
+
+.account-appointments__list .account-rating {
+  margin-top: 14px;
+}

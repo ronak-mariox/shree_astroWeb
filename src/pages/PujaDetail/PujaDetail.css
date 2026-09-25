@@ -1,0 +1,374 @@
+.puja-detail {
+  background: var(--bg);
+  padding-bottom: 80px;
+  color: var(--ink);
+}
+
+.puja-detail__hero {
+  position: relative;
+  height: 400px;
+  overflow: hidden;
+}
+
+.puja-detail__hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.puja-detail__hero-shade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0.2) 60%);
+}
+
+.puja-detail__back {
+  position: absolute;
+  top: 24px;
+  left: 40px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  border: 0.619px solid rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 19.5px;
+  color: var(--on-brand);
+  white-space: nowrap;
+  transition: background-color 0.15s ease;
+}
+
+.puja-detail__back:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.puja-detail__back-icon {
+  width: 14px;
+  height: 14px;
+}
+
+.puja-detail__hero-text {
+  position: absolute;
+  left: 40px;
+  right: 40px;
+  bottom: 36px;
+}
+
+.puja-detail__badge-row {
+  height: 38px;
+}
+
+.puja-detail__badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 8px;
+  background: rgba(245, 81, 2, 0.85);
+  font-size: 11.5px;
+  font-weight: 700;
+  line-height: 17.25px;
+  color: var(--on-brand);
+  white-space: nowrap;
+}
+
+.puja-detail__title {
+  font-size: 40px;
+  font-weight: 600;
+  line-height: 44px;
+  letter-spacing: -0.8px;
+  color: var(--on-brand);
+}
+
+.puja-detail__tagline {
+  margin-top: 6px;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.puja-detail__inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 48px 40px 0;
+}
+
+.puja-detail__layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 360px;
+  gap: 40px;
+  align-items: start;
+}
+
+.puja-detail__main {
+  min-width: 0;
+}
+
+.puja-detail__card {
+  background: var(--surface);
+  border: 1.237px solid var(--border);
+  border-radius: 20px;
+  padding: 32px;
+}
+
+.puja-detail__card--benefits {
+  margin-top: 24px;
+}
+
+.puja-detail__card-title {
+  font-size: 18px;
+  font-weight: 800;
+  line-height: 27px;
+  color: var(--ink);
+}
+
+.puja-detail__about {
+  margin-top: 16px;
+  font-size: 14.5px;
+  font-weight: 400;
+  line-height: 26.1px;
+  color: var(--muted);
+}
+
+.puja-detail__benefits {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.puja-detail__benefit {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.puja-detail__check {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 22px;
+  height: 22px;
+  border-radius: 6px;
+  background: rgba(34, 197, 94, 0.1);
+}
+
+.puja-detail__check-icon {
+  width: 12px;
+  height: 12px;
+}
+
+.puja-detail__benefit-text {
+  font-size: 14px;
+  line-height: 21px;
+  color: var(--ink-2);
+}
+
+.puja-detail__sidebar {
+  position: sticky;
+  top: 150px;
+}
+
+.puja-detail__success {
+  margin-bottom: 16px;
+  padding: 12px 16px;
+  border: 1px solid rgba(34, 197, 94, 0.3);
+  border-radius: 12px;
+  background: rgba(34, 197, 94, 0.1);
+  font-size: 13px;
+  line-height: 19.5px;
+  color: #15803d;
+}
+
+.puja-detail__price-card {
+  background: var(--surface);
+  border: 1.237px solid var(--border);
+  border-radius: 24px;
+  padding: 28px;
+  box-shadow: 0 24px 40px var(--shadow);
+}
+
+.puja-detail__price {
+  font-size: 32px;
+  font-weight: 900;
+  line-height: 48px;
+  letter-spacing: -0.64px;
+  color: var(--ink);
+}
+
+.puja-detail__price-note {
+  margin-top: 4px;
+  font-size: 13px;
+  line-height: 19.5px;
+  color: var(--muted-2);
+}
+
+.puja-detail__rows {
+  margin: 20px 0 0;
+}
+
+.puja-detail__row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 8px 0;
+  border-bottom: 0.619px solid var(--border-2);
+}
+
+.puja-detail__row-label {
+  font-size: 13px;
+  line-height: 19.5px;
+  color: var(--muted-2);
+  white-space: nowrap;
+}
+
+.puja-detail__row-value {
+  margin: 0;
+  font-size: 13.5px;
+  font-weight: 700;
+  line-height: 20.25px;
+  color: var(--ink);
+  text-align: right;
+}
+
+.puja-detail__book {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 52.5px;
+  margin-top: 24px;
+  border-radius: 13px;
+  background: var(--grad-orange);
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 22.5px;
+  color: var(--on-brand);
+  transition: opacity 0.15s ease;
+}
+
+.puja-detail__book:hover {
+  opacity: 0.92;
+}
+
+.puja-detail__note {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 14px;
+  font-size: 12px;
+  line-height: 18px;
+  color: var(--muted-2);
+}
+
+.puja-detail__note-icon {
+  width: 12px;
+  height: 12px;
+}
+
+@media (max-width: 1024px) {
+  .puja-detail__layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 24px;
+  }
+  .puja-detail__sidebar {
+    position: static;
+    order: -1;
+  }
+}
+
+@media (max-width: 768px) {
+  .puja-detail {
+    padding-bottom: 56px;
+  }
+  .puja-detail__hero {
+    height: 340px;
+  }
+  .puja-detail__back {
+    left: 24px;
+  }
+  .puja-detail__hero-text {
+    left: 24px;
+    right: 24px;
+    bottom: 28px;
+  }
+  .puja-detail__title {
+    font-size: 32px;
+    line-height: 38px;
+    letter-spacing: -0.64px;
+  }
+  .puja-detail__inner {
+    padding: 32px 24px 0;
+  }
+  .puja-detail__card {
+    padding: 24px;
+  }
+}
+
+@media (max-width: 640px) {
+  .puja-detail__hero {
+    height: 300px;
+  }
+  .puja-detail__back {
+    top: 16px;
+    left: 16px;
+  }
+  .puja-detail__hero-text {
+    left: 16px;
+    right: 16px;
+    bottom: 24px;
+  }
+  .puja-detail__title {
+    font-size: 28px;
+    line-height: 34px;
+  }
+  .puja-detail__tagline {
+    font-size: 14px;
+    line-height: 21px;
+  }
+  .puja-detail__inner {
+    padding: 24px 16px 0;
+  }
+  .puja-detail__card {
+    padding: 20px;
+    border-radius: 16px;
+  }
+  .puja-detail__price-card {
+    padding: 22px;
+    border-radius: 20px;
+  }
+}
+
+/* ---------------------------------------------------- live data additions */
+
+.puja-detail__hero--skeleton {
+  background: linear-gradient(90deg, var(--border) 0%, var(--surface-2) 50%, var(--border) 100%);
+  background-size: 200% 100%;
+  animation: ui-bone-shimmer 1.4s ease-in-out infinite;
+}
+
+.puja-detail__inner--state {
+  padding-top: 48px;
+  padding-bottom: 48px;
+}
+
+.puja-detail__old-price {
+  margin-left: 10px;
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 0;
+  color: var(--muted-2);
+}
+
+.puja-detail__success-link {
+  font-weight: 700;
+  color: #15803d;
+  text-decoration: underline;
+}
