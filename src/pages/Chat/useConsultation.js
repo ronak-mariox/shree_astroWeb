@@ -4,7 +4,6 @@ import { secondsUntil, toContinueBody } from '../../data/consultPackages.js'
 import {
   ApiError,
   cancelChat,
-  confirmTopUp,
   continueConsultation,
   endChat,
   fetchAstrologer,
@@ -12,13 +11,14 @@ import {
   fetchMessages,
   fetchWallet,
   getChatState,
+  isPaymentCancelled,
   joinLabels,
   markRead,
   messageOf,
+  payTopUp,
   rateChat,
   sendMessage,
   sendTyping,
-  startTopUp,
   subscribeToConsultation,
   subscribeToRequest,
 } from '../../api/index.js'
@@ -28,6 +28,7 @@ export const REQUEST_TIMEOUT_SECONDS = 120
 const REQUEST_POLL_MS = 5000
 const TYPING_IDLE_MS = 2500
 const TYPING_RESEND_MS = 2000
+const PAYMENT_CANCELLED_NOTE = 'Payment cancelled.'
 
 /* ---------------------------------------------------------------- helpers */
 
@@ -48,6 +49,23 @@ export function formatClock(value) {
 }
 
 /** A neutral initial-letter avatar, for astrologers without a photo. */
+/**
+ * The completed screen's headline: who closed the consultation. The socket's
+ * `session:ended` carries `endedBy` + `reason`; the REST read after a reload
+ * only `reason` — so both are checked. Nothing is said about the seeker's own
+ * end, they just did it.
+ */
+export function endedMessage(ended, astrologerName, kind = 'chat') {
+  const name = astrologerName || 'Your astrologer'
+  if (ended?.reason === 'astrologer_disconnected') {
+    return `${name} got disconnected, so your ${kind} consultation has ended. The unfinished minute was refunded.`
+  }
+  if (ended?.endedBy === 'astrologer' || ended?.reason === 'astrologer_ended') {
+    return `${name} has ended the ${kind} consultation.`
+  }
+  return `Your ${kind} consultation with ${name} has ended.`
+}
+
 export function avatarFor(name) {
   const initial = String(name || '?').trim().charAt(0).toUpperCase() || '?'
   const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="120" height="120"><rect width="120" height="120" rx="60" fill="#f4d3b0"/><text x="50%" y="50%" dy=".36em" text-anchor="middle" font-family="Arial,sans-serif" font-size="56" font-weight="700" fill="#b4531c">${initial}</text></svg>`
@@ -552,13 +570,12 @@ export function useConsultation(chatId, channel = 'chat') {
     }
   }, [chatId, finish])
 
-  /** No gateway yet — /wallet/topup then /wallet/topup/confirm straight away; the server resumes a paused session on confirm. */
+  /** Razorpay checkout, then the verified confirm — on which the server resumes a paused session. */
   const topUp = useCallback(
     async (amount) => {
       setBusy('topup')
       try {
-        const pending = await startTopUp(amount)
-        await confirmTopUp(pending.transactionId)
+        await payTopUp({ amount })
         const wallet = await fetchWallet().catch(() => null)
         if (wallet?.balance != null) setBalance(wallet.balance)
         setLowBalance(null)
@@ -576,7 +593,19 @@ export function useConsultation(chatId, channel = 'chat') {
         }
         return true
       } catch (e) {
+        if (isPaymentCancelled(e)) {
+          /** Closing the checkout is not an error — a brief note that clears itself. */
+          setActionError(PAYMENT_CANCELLED_NOTE)
+          setTimeout(() => setActionError((current) => (current === PAYMENT_CANCELLED_NOTE ? '' : current)), 4000)
+          return false
+        }
         setActionError(messageOf(e, 'Could not add money. Please try again.'))
+        /** Paid but not confirmed yet — the webhook may have credited it already. */
+        if (e?.code === 'payment_confirm_pending') {
+          fetchWallet()
+            .then((wallet) => wallet?.balance != null && setBalance(wallet.balance))
+            .catch(() => {})
+        }
         return false
       } finally {
         setBusy('')

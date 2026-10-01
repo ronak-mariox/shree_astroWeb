@@ -1,8 +1,10 @@
-import { client } from './client.js'
+import { ApiError, client } from './client.js'
 import { clearSession, getRefreshToken, saveSession } from './session.js'
 import { joinChatRoom, sendChatMessage, subscribeToChat, subscribeToChatRequest } from './socket.js'
+import { isPaymentCancelled, openCheckout } from '../utils/razorpayCheckout.js'
 
 export { ApiError, API_BASE_URL, messageOf } from './client.js'
+export { PaymentCancelled, isPaymentCancelled } from '../utils/razorpayCheckout.js'
 export * from './socket.js'
 
 /* ------------------------------------------------------------- formatting */
@@ -154,11 +156,100 @@ export const fetchAstrologerReviews = async (astrologerId, page = 1, limit = 20)
 export const fetchWallet = async () => (await client.get('/wallet')).wallet
 export const fetchTransactions = (filter = 'all', page = 1, limit = 50) =>
   client.get('/wallet/transactions', { params: { filter, page, limit } })
-/** With a `topup` coupon the start response carries `bonusAmount` (credited on confirm). */
+/**
+ * Opens a pending top-up: `{ transactionId, reference, amount, bonusAmount, gateway, razorpay? }`.
+ * With `gateway: 'razorpay'` the `razorpay` block is what the checkout needs —
+ * `{ keyId, orderId, amount (paise), currency, name, description, prefill }`.
+ * With a `topup` coupon the response carries `bonusAmount` (credited on confirm).
+ */
 export const startTopUp = (amount, couponCode) =>
   client.post('/wallet/topup', couponCode ? { amount, couponCode } : { amount })
-export const confirmTopUp = async (transactionId, paymentId, method) =>
-  (await client.post('/wallet/topup/confirm', { transactionId, paymentId, method })).transaction
+
+/**
+ * Credits a pending top-up. A Razorpay one needs the checkout's result,
+ * `{ razorpayPaymentId, razorpayOrderId, razorpaySignature }`, which the server
+ * verifies; a `gateway: 'none'` one (dev only) takes no payment fields.
+ */
+export const confirmTopUp = async (transactionId, payment = {}) =>
+  (await client.post('/wallet/topup/confirm', { transactionId, ...payment })).transaction
+
+/** Marks a pending top-up failed (checkout dismissed / payment failed). Idempotent. */
+export const cancelTopUp = (transactionId, reason) =>
+  client.post('/wallet/topup/cancel', reason ? { transactionId, reason } : { transactionId })
+
+const CONFIRM_ATTEMPTS = 3
+const pause = (ms) => new Promise((resolve) => setTimeout(resolve, ms))
+
+/**
+ * The money has already left the seeker's account here, so a dropped
+ * connection or a 5xx is retried; a 4xx is the server's verdict and is not.
+ */
+async function confirmPaidTopUp(transactionId, payment) {
+  let lastError
+  for (let attempt = 1; attempt <= CONFIRM_ATTEMPTS; attempt += 1) {
+    try {
+      return await confirmTopUp(transactionId, payment)
+    } catch (error) {
+      lastError = error
+      const transient = error instanceof ApiError && (!error.status || error.status >= 500)
+      if (!transient) throw error
+      if (attempt < CONFIRM_ATTEMPTS) await pause(1500 * attempt)
+    }
+  }
+  throw new ApiError(
+    'Your payment went through, but we could not confirm it just now. Your wallet will update in a few minutes — please do not pay again.',
+    lastError?.status,
+    { code: 'payment_confirm_pending', details: { transactionId, paymentId: payment.razorpayPaymentId } },
+  )
+}
+
+/**
+ * The one way to add money: start → Razorpay checkout → confirm (or confirm
+ * straight away when the backend runs without a gateway). Resolves the
+ * confirmed transaction plus the `bonusAmount` the coupon promised.
+ *
+ * Throws `PaymentCancelled` (see `isPaymentCancelled`) when the seeker closes
+ * the checkout, and an error carrying Razorpay's own description when the
+ * payment fails; in both cases the pending top-up is cancelled first.
+ */
+export async function payTopUp({ amount, couponCode } = {}) {
+  const order = await startTopUp(amount, couponCode)
+  const bonusAmount = Number(order?.bonusAmount) || 0
+
+  if (order?.gateway !== 'razorpay') {
+    const transaction = await confirmTopUp(order.transactionId)
+    return { ...transaction, bonusAmount }
+  }
+
+  const rzp = order.razorpay ?? {}
+  let paid
+  try {
+    paid = await openCheckout({
+      key: rzp.keyId,
+      order_id: rzp.orderId,
+      amount: rzp.amount,
+      currency: rzp.currency || 'INR',
+      name: rzp.name || 'Shree Astro',
+      description: rzp.description || 'Wallet top-up',
+      ...(rzp.prefill && { prefill: rzp.prefill }),
+      /** Ask before closing, so a payment in progress is not abandoned by a stray click. */
+      modal: { confirm_close: true },
+    })
+  } catch (error) {
+    /** Nothing was paid — close the pending row so it does not linger; the reason is for support. */
+    const reason = isPaymentCancelled(error) ? 'Checkout dismissed' : error?.message || 'Payment failed'
+    await cancelTopUp(order.transactionId, reason).catch(() => {})
+    throw error
+  }
+
+  const transaction = await confirmPaidTopUp(order.transactionId, {
+    razorpayPaymentId: paid.razorpay_payment_id,
+    razorpayOrderId: paid.razorpay_order_id,
+    razorpaySignature: paid.razorpay_signature,
+  })
+  return { ...transaction, bonusAmount }
+}
+
 export const fetchSettings = async () => (await client.get('/settings', { auth: false })).settings
 
 /* --------------------------------------------------------- consultations */

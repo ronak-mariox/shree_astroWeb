@@ -18,7 +18,7 @@ import phoneOffIcon from '../../assets/pages/call/phone-off-icon.svg'
 import kundliIcon from '../../assets/pages/call/kundli-icon.svg'
 import notesIcon from '../../assets/pages/call/notes-icon.svg'
 import chatIcon from '../../assets/pages/call/chat-icon.svg'
-import { avatarFor, formatDuration, useConsultation } from '../Chat/useConsultation.js'
+import { avatarFor, endedMessage, formatDuration, useConsultation } from '../Chat/useConsultation.js'
 import './Call.css'
 
 const money = (value) => (Number.isInteger(Number(value)) ? String(Number(value) || 0) : Number(value || 0).toFixed(2))
@@ -133,7 +133,7 @@ export default function Call() {
       <div className="call-page call-page--light">
         <CompletedScreen
           astrologer={astrologer}
-          message={`Your voice consultation with ${astrologer.name} has ended.`}
+          message={endedMessage(c.ended, astrologer.name, 'voice')}
           duration={formatDuration(seconds)}
           charge={money(amount)}
           rows={[

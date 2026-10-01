@@ -7,15 +7,15 @@ import { PER_MINUTE, resolveQuotes, shortfallFor, toPackageBooking } from '../..
 import {
   ApiError,
   TOPICS,
-  confirmTopUp,
   fetchAstrologer,
   fetchConsultations,
   fetchSettings,
+  isPaymentCancelled,
   messageOf,
+  payTopUp,
   precheckSession,
   requestChat,
   rupees,
-  startTopUp,
   toApiDate,
 } from '../../api/index.js'
 import { useAuth } from '../../context/useAuth.js'
@@ -311,12 +311,12 @@ export default function Intake() {
     setRecharge(false)
     setProcessingAmount(amount)
     try {
-      const pending = await startTopUp(amount)
-      await confirmTopUp(pending.transactionId)
+      await payTopUp({ amount })
       await Promise.all([runPrecheck(), refreshUser().catch(() => null)])
       setSubmitError(null)
     } catch (err) {
-      setSubmitError({ kind: 'error', message: messageOf(err, 'Could not add money. Please try again.') })
+      if (isPaymentCancelled(err)) setSubmitError({ kind: 'notice', message: 'Payment cancelled.' })
+      else setSubmitError({ kind: 'error', message: messageOf(err, 'Could not add money. Please try again.') })
     } finally {
       setProcessingAmount(0)
     }
@@ -584,7 +584,10 @@ export default function Intake() {
                     )}
 
                     {submitError && (
-                      <p className="intake-form__error intake-form__error--block" role="alert">
+                      <p
+                        className={`intake-form__error intake-form__error--block${submitError.kind === 'notice' ? ' intake-form__error--quiet' : ''}`}
+                        role={submitError.kind === 'notice' ? 'status' : 'alert'}
+                      >
                         {submitError.message}{' '}
                         {submitError.kind === 'conflict' && (
                           <Link to={submitError.link} className="intake-form__error-link">

@@ -13,7 +13,7 @@ import { rupees } from '../../api/index.js'
 import endChatIcon from '../../assets/pages/chat/end-chat-icon.svg'
 import endChatModalIcon from '../../assets/pages/chat/end-chat-modal-icon.svg'
 import sendIcon from '../../assets/pages/chat/send-icon.svg'
-import { avatarFor, formatDuration, useConsultation } from './useConsultation.js'
+import { avatarFor, endedMessage, formatDuration, useConsultation } from './useConsultation.js'
 import './Chat.css'
 
 const money = (value) => (Number.isInteger(Number(value)) ? String(Number(value) || 0) : Number(value || 0).toFixed(2))
@@ -143,7 +143,7 @@ export default function Chat() {
       <div className="chat-page chat-page--light">
         <CompletedScreen
           astrologer={astrologer}
-          message={`Your chat consultation with ${astrologer.name} has ended.`}
+          message={endedMessage(c.ended, astrologer.name, 'chat')}
           duration={formatDuration(seconds)}
           charge={money(amount)}
           rows={[

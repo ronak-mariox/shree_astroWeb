@@ -2,15 +2,15 @@ import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useAuth } from '../../context/useAuth.js'
 import {
-  confirmTopUp,
   dateTime,
   fetchSettings,
   fetchTransactions,
   fetchWallet,
+  isPaymentCancelled,
   messageOf,
+  payTopUp,
   rupees,
   shortDate,
-  startTopUp,
 } from '../../api/index.js'
 import CouponBox from '../../components/ui/CouponBox.jsx'
 import txnCredit from '../../assets/account/txn-credit.svg'
@@ -103,6 +103,8 @@ export default function Wallet() {
   const [custom, setCustom] = useState('')
   const [paying, setPaying] = useState(false)
   const [payError, setPayError] = useState('')
+  /** A quiet line under the form — "Payment cancelled" is not an error. */
+  const [payNote, setPayNote] = useState('')
   const [toast, setToast] = useState('')
   /** `{ code, coupon, discount, bonusAmount? }` from POST /coupons/validate, or null. */
   const [coupon, setCoupon] = useState(null)
@@ -119,6 +121,7 @@ export default function Wallet() {
     setSelected(value)
     setCustom('')
     setPayError('')
+    setPayNote('')
   }
 
   const pay = async (e) => {
@@ -126,12 +129,12 @@ export default function Wallet() {
     if (!amountOk || paying) return
     setPaying(true)
     setPayError('')
+    setPayNote('')
     setToast('')
     try {
-      const order = await startTopUp(amount, coupon?.code)
-      /* No gateway is wired yet, so the order is confirmed straight away; `method` is cosmetic. */
-      const txn = await confirmTopUp(order.transactionId, undefined, 'upi')
-      const credited = Number(order?.bonusAmount) || 0
+      /* Razorpay checkout opens here; the wallet is credited only after the server verifies the payment. */
+      const txn = await payTopUp({ amount, couponCode: coupon?.code })
+      const credited = Number(txn?.bonusAmount) || 0
       setToast(
         `${rupees(txn?.amount ?? amount)} added to your wallet${credited > 0 ? ` + ${rupees(credited)} coupon bonus` : ''}${
           txn?.reference ? ` · ${txn.reference}` : ''
@@ -144,8 +147,17 @@ export default function Wallet() {
       reloadList()
       refreshUser().catch(() => {})
     } catch (err) {
+      if (isPaymentCancelled(err)) {
+        setPayNote('Payment cancelled.')
+        return
+      }
       if (err?.code === 'coupon_invalid') setCoupon(null)
       setPayError(messageOf(err))
+      /* The payment was taken but not confirmed yet — the webhook may already have credited it. */
+      if (err?.code === 'payment_confirm_pending') {
+        wallet.reload()
+        reloadList()
+      }
     } finally {
       setPaying(false)
     }
@@ -197,6 +209,7 @@ export default function Wallet() {
             onClick={() => {
               setAdding((v) => !v)
               setPayError('')
+              setPayNote('')
               setToast('')
             }}
             aria-expanded={adding}
@@ -240,6 +253,7 @@ export default function Wallet() {
                 onChange={(e) => {
                   setCustom(e.target.value)
                   setPayError('')
+                  setPayNote('')
                 }}
                 disabled={paying}
                 aria-label="Custom amount"
@@ -249,7 +263,7 @@ export default function Wallet() {
                 className="account-wallet__btn account-wallet__btn--primary"
                 disabled={!amountOk || paying}
               >
-                {paying ? 'Adding…' : `Pay ${rupees(amount || 0)}`}
+                {paying ? 'Processing…' : `Pay ${rupees(amount || 0)}`}
               </button>
               <button
                 type="button"
@@ -282,6 +296,11 @@ export default function Wallet() {
                 : `Minimum ${rupees(min)} · Maximum ${rupees(max)}`}
               {!amountOk && custom !== '' ? ` — enter an amount between ${rupees(min)} and ${rupees(max)}.` : ''}
             </p>
+            {payNote && !payError && (
+              <p className="account-wallet__topup-limits" role="status">
+                {payNote}
+              </p>
+            )}
             {payError && (
               <p className="account-wallet__topup-error" role="alert">
                 {payError}
