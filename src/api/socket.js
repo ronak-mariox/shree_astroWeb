@@ -1,6 +1,6 @@
 import { io } from 'socket.io-client'
-import { SOCKET_BASE_URL } from './client.js'
-import { getAccessToken } from './session.js'
+import { SOCKET_BASE_URL, refreshOnce } from './client.js'
+import { getAccessToken, getSession } from './session.js'
 
 export const CHAT_EVENTS = {
   JOIN: 'chat:join',
@@ -29,29 +29,48 @@ export const CHAT_EVENTS = {
 }
 
 let socket = null
+/** Whose account the open socket belongs to — a different sign-in gets a fresh connection. */
+let socketAccount = null
 
 export function connectSocket() {
-  const token = getAccessToken()
-  if (!token) return null
+  if (!getAccessToken()) return null
+  const account = getSession()?.user?.id ?? null
 
+  if (socket && socketAccount !== account) disconnectSocket()
   if (socket) {
-    if (socket.auth?.token !== token) {
-      socket.auth = { token }
-      socket.disconnect().connect()
-    } else if (!socket.connected) {
-      socket.connect()
-    }
+    if (!socket.connected && !socket.active) socket.connect()
     return socket
   }
 
+  socketAccount = account
   socket = io(SOCKET_BASE_URL, {
-    auth: { token },
+    /**
+     * Read on every handshake, reconnects included. A fixed `{ token }` would
+     * replay whatever token the socket first opened with, and the server refuses
+     * an expired one — access tokens live 15 minutes, a consultation can outlast
+     * that, and the first network blip after it would kill the connection.
+     */
+    auth: (cb) => cb({ token: getAccessToken() }),
     transports: ['websocket'],
     autoConnect: true,
     reconnection: true,
   })
-  socket.on('connect_error', (error) => {
+  const current = socket
+  current.on('connect_error', (error) => {
     console.warn('[socket] connect_error:', error.message)
+    /**
+     * socket.io never retries a handshake the server refused. An expired token
+     * is the server's cue to refresh first (backend/socket/index.js), then
+     * connect again with the new one.
+     */
+    if (error?.data?.code !== 'token_expired' || current.active) return
+    refreshOnce()
+      .then(() => {
+        if (socket === current && !current.connected) current.connect()
+      })
+      .catch(() => {
+        /* refresh token spent — the next REST call signs the user out */
+      })
   })
   return socket
 }
@@ -63,6 +82,7 @@ export function disconnectSocket() {
   socket.removeAllListeners()
   socket.disconnect()
   socket = null
+  socketAccount = null
 }
 
 export function joinChatRoom(chatId, lastSeq = 0) {
