@@ -620,6 +620,11 @@
   font-size: 13px;
 }
 
+/* Not an error — e.g. "Payment cancelled" after the checkout was closed. */
+.intake-form__error--quiet {
+  color: var(--muted);
+}
+
 .intake-form__error-link {
   font-weight: 600;
   color: var(--orange);
