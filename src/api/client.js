@@ -70,7 +70,8 @@ async function refreshAccessToken() {
   return data.accessToken
 }
 
-function refreshOnce() {
+/** One refresh at a time — REST retries and the socket's refused handshake (api/socket.js) share it. */
+export function refreshOnce() {
   refreshing = refreshing ?? refreshAccessToken().finally(() => {
     refreshing = null
   })
